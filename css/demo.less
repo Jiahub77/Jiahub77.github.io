@@ -1,0 +1,115 @@
+body {
+    .sidebar {
+        color: #fff;
+        background-color: #0c1e35;
+        padding: 0;
+
+        .sidebar-header {
+            display: flex;
+            justify-content: center;
+            height: 100px;
+            min-height: 100px;
+            padding: 20px;
+
+            .left {
+                width: 35px;
+                min-width: 35px;
+                height: 35px;
+                min-height: 35px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                color: white;
+                font-size: 24px;
+                font-weight: 700;
+                background-color: #ff8100;
+                margin-right: 10px;
+            }
+
+            .right {
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                font-size: 20px;
+                line-height: 30px;
+                transition: opacity 0.3s;
+                opacity: 1;
+            }
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                text-align: center;
+                padding: 16px;
+
+                a {
+                    color: #fff;
+                    font-size: 0.9em;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    flex-grow: 1;
+                    transition: color 0.3s;
+                }
+            }
+        }
+
+        .sidebar-footer {
+            height: 230px;
+            min-height: 230px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .footer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.8em;
+            padding: 20px 0;
+            border-radius: 8px;
+            width: 180px;
+            min-width: 190px;
+            margin: 0 auto;
+            background-color: #162d4a;
+
+            .logo {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    .layout {
+        padding: 100px;
+
+        .shadow-item {
+            box-shadow: 0 0 20px 2px #e6e6e6;
+            border-radius: 10px;
+            background-color: #fff;
+            transition: .5s;
+            overflow: hidden;
+            &:hover {
+                transform: translateY(-20px);
+            }
+
+            .title {
+                padding: 20px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+}

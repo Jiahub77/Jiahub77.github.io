@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    canvas {
+        background-color: rgb(247, 218, 165);
+    }
+</style>
+
+<body>
+    <script>
+        const canvas = document.createElement('canvas')
+        canvas.width = 800
+        canvas.height = 800
+        document.body.append(canvas)
+        // 获取context
+        const context = canvas.getContext('2d')
+
+        // 画棋盘
+        for (var i = 1; i < 16; i++) {
+            // 横线
+            context.moveTo(50, 50 * i)
+            context.lineTo(750, 50 * i)
+            context.stroke()
+            // 纵线
+            context.moveTo(50 * i, 50)
+            context.lineTo(50 * i, 750)
+            context.stroke()
+        }
+
+        // 定义一个数组，存储所有棋子的位置
+        let circles = []
+        for (var i = 1; i < 16; i++) {
+            circles[i] = []
+        }
+
+        // 棋子颜色
+        let isBlack = true
+        let endGame
+        // 画棋子
+        canvas.addEventListener('click', function (e) {
+            let { offsetX, offsetY } = e
+            if (offsetX < 25 || offsetY < 25 || offsetX > 775 || offsetY > 775) {
+                return
+            }
+            if (endGame) {
+                return
+            }
+            // 格子所在的位置
+            let i = Math.round(offsetX / 50)
+            let j = Math.round(offsetY / 50)
+            let x = i * 50
+            let y = j * 50
+
+            context.beginPath()
+            context.arc(x, y, 20, 0, Math.PI * 2)
+
+            // 判断落字的位置是否有棋子
+            if (circles[i][j]) {
+                return
+            }
+            // 对应棋子放到二维数组里
+            circles[i][j] = isBlack ? 'black' : 'white'
+
+            //判断棋子颜色
+            // context.fillStyle = isBlack ? 'black' : 'white'
+            let tx = isBlack ? x - 10 : x + 10
+            let ty = isBlack ? y - 10 : y + 10
+
+            let g = context.createRadialGradient(tx, ty, 0, tx, ty, 30)
+            g.addColorStop(0, isBlack ? '#ccc' : '#666')
+            g.addColorStop(1, isBlack ? '#000' : '#fff')
+            context.fillStyle = g
+            // 设置阴影
+            context.shadowBlur = 4
+            context.shadowColor = '#000'
+            context.shadowOffsetX = 2
+            context.shadowOffsetY = 2
+
+            context.fill()
+            context.closePath()
+            // 判断是否结束
+            endGame = checkVertical(i, j) || checkHorizontal(i, j) || checkLeftTop(i, j) || checkRightTop(i, j)
+            if (endGame) {
+                setTimeout(() => {
+                    alert('游戏结束')
+                }, 200)
+            }
+
+            isBlack = !isBlack
+        })
+
+        // 纵向
+        function checkVertical(row, col) {
+            // 记录向上/下查找参数
+            let up = 0
+            let down = 0
+            // 连续几个连一起
+            let count = 1
+            let time = 0
+            while (time < 1000) {
+                time++
+
+                let target = isBlack ? 'black' : 'white'
+                // 在row col为起点,向上向下查找
+                up++
+                if (circles[row][col - up] && circles[row][col - up] == target) {
+                    count++
+                }
+                down++
+                if (circles[row][col + down] && circles[row][col + down] == target) {
+                    count++
+                }
+                // 如果棋子大于一个指定的次数
+                if (count >= 5 || (circles[row][col - up] !== target && circles[row][col + down] !== target)) {
+                    break
+                }
+            }
+            return count >= 5
+        }
+
+        // 横向
+        function checkHorizontal(row, col) {
+            // 记录向左/右查找参数
+            let left = 0
+            let right = 0
+            // 连续几个连一起
+            let count = 1
+            let time = 0
+            while (time < 1000) {
+                time++
+
+                let target = isBlack ? 'black' : 'white'
+                // 在row col为起点,向上向下查找
+                left++
+                if (circles[row - left][col] && circles[row - left][col] == target) {
+                    count++
+                }
+                right++
+                if (circles[row + right][col] && circles[row + right][col] == target) {
+                    count++
+                }
+                // 如果棋子大于一个指定的次数
+                if (count >= 5 || (circles[row - left][col] !== target && circles[row + right][col] !== target)) {
+                    break
+                }
+            }
+            return count >= 5
+        }
+
+        // 斜向
+        function checkLeftTop(row, col) {
+            // 记录向左/右查找参数
+            let leftTop = 0
+            let rightBottom = 0
+            // 连续几个连一起
+            let count = 1
+            let time = 0
+            while (time < 1000) {
+                time++
+
+                let target = isBlack ? 'black' : 'white'
+                // 在row col为起点,向上向下查找
+                leftTop++
+                if (circles[row - leftTop][col - leftTop] && circles[row - leftTop][col - leftTop] == target) {
+                    count++
+                }
+                rightBottom++
+                if (circles[row + rightBottom][col + rightBottom] && circles[row + rightBottom][col + rightBottom] == target) {
+                    count++
+                }
+                // 如果棋子大于一个指定的次数
+                if (count >= 5 || (circles[row - leftTop][col - leftTop] !== target && circles[row + rightBottom][col + rightBottom] !== target)) {
+                    break
+                }
+            }
+            return count >= 5
+        }
+        function checkRightTop(row, col) {
+            // 记录向左/右查找参数
+            let RightTop = 0
+            let LeftBottom = 0
+            // 连续几个连一起
+            let count = 1
+            let time = 0
+            while (time < 1000) {
+                time++
+
+                let target = isBlack ? 'black' : 'white'
+                // 在row col为起点,向上向下查找
+                RightTop++
+                if (circles[row + RightTop][col - RightTop] && circles[row + RightTop][col - RightTop] == target) {
+                    count++
+                }
+                LeftBottom++
+                if (circles[row - LeftBottom][col + LeftBottom] && circles[row - LeftBottom][col + LeftBottom] == target) {
+                    count++
+                }
+                // 如果棋子大于一个指定的次数
+                if (count >= 5 || (circles[row + RightTop][col - RightTop] !== target && circles[row - LeftBottom][col + LeftBottom] !== target)) {
+                    break
+                }
+            }
+            return count >= 5
+        }
+    </script>
+</body>
+
+</html>

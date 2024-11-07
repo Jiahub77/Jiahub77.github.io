@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        width: 300px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 0 5px 1px #ccc;
+        margin: 20px auto;
+        border-radius: 20px;
+    }
+
+    ul li {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px;
+    }
+
+    ul li button {
+        width: 68px;
+        height: 30px;
+        text-align: center;
+        border: 0.1px solid #ccc;
+    }
+
+    .like {
+        background-color: red;
+        color: #fff;
+    }
+</style>
+
+<body>
+    <ul>
+
+    </ul>
+</body>
+<script>
+
+    /*
+    每一首歌都有一个 “收藏/取消收藏” 按钮
+当歌曲已被收藏时按钮显式“取消收藏”，否则显式“收藏”
+创建一个收藏列表，将所有已收藏的歌曲展示在列表中
+将收藏的歌曲信息存储在localStorage中持久保存，保证每次打开页面已收藏的歌曲都会正确展示在收藏列表中
+数据:
+    
+    */
+    var songs = [
+        { id: 1, name: "会不会（吉他版）" },
+        { id: 2, name: "是但求其爱" },
+        { id: 3, name: "我很好（吉他版）" },
+        { id: 4, name: "海底" },
+        { id: 5, name: "执迷不悟" },
+        { id: 6, name: "他只是经过" },
+        { id: 7, name: "经济舱 (Live)" },
+        { id: 8, name: "是想你的声音啊" },
+        { id: 9, name: "苦尽甘来" },
+        { id: 10, name: "天外来物" },
+    ]
+    var collectList = JSON.parse(localStorage.getItem('collectList')) || []
+
+    songs.forEach((song, index) => {
+        var flag = collectList.some(item => item.id === song.id);
+        $('ul').append(`<li><p>${song.name}</p> <button class=${flag ? 'like' : ''}>${flag ? '取消收藏' : '收藏'}</button></li>`)
+    })
+
+    // 点击收藏
+    $('ul').on('click', 'button', function () {
+        // 判断是否有点击的元素
+        var flag = collectList.some(item => item.id === songs[$(this).parent().index()].id);
+        if (!flag) {
+            $(this).text('取消收藏')
+            $(this).addClass('like')
+            collectList.push(songs[$(this).parent().index()])
+            localStorage.setItem('collectList',JSON.stringify(collectList))
+        }else{
+            $(this).text('收藏')
+            $(this).removeClass('like')
+            collectList = collectList.filter(item=>item.id !== songs[$(this).parent().index()].id)
+            localStorage.setItem('collectList',JSON.stringify(collectList))
+        }
+    })
+</script>
+
+</html>

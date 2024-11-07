@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4681239 */
+  src: url('../font/iconfont.woff2?t=1730711313489') format('woff2'),
+       url('../font/iconfont.woff?t=1730711313489') format('woff'),
+       url('../font/iconfont.ttf?t=1730711313489') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 40px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+  content: "\e6a0";
+}
+
+.icon-address:before {
+  content: "\e6a7";
+}
+
+.icon-ri-baidu-fill:before {
+  content: "\e829";
+}
+
+.icon-ri-drag-move--line:before {
+  content: "\ed40";
+}
+
+.icon-youshangjiantou-yuan-shi:before {
+  content: "\e8c6";
+}
+
+.icon-youjiantou:before {
+  content: "\e614";
+}
+
+.icon-a-ic_Instagram1x:before {
+  content: "\e609";
+}
+
+.icon-email:before {
+  content: "\e856";
+}
+
+.icon-ri-hand-heart-line:before {
+  content: "\e91d";
+}
+
+.icon-ri-first-aid-kit-fill:before {
+  content: "\e6a6";
+}
+
+.icon-arrow-up-circle-fill:before {
+  content: "\e748";
+}
+
+.icon-inszhanghao:before {
+  content: "\e600";
+}
+
+.icon-social-_round-linkedin:before {
+  content: "\e686";
+}
+
+.icon-facebookfacebook52:before {
+  content: "\e601";
+}
+
+.icon-tuite:before {
+  content: "\e608";
+}
+

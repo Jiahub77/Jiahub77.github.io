@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .cpoyBox {
+        width: 300px;
+        height: 300px;
+        text-align: justify;
+        border: 1px solid #000;
+        padding: 4px;
+        overflow: auto;
+    }
+
+    .btnBox {
+        width: 300px;
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+</style>
+
+<body>
+    <div class="cpoyBox">‌
+        使用 window.getSelection() 获取用户鼠标选中的文本内容。
+        在JavaScript中，使用剪贴板主要有两种方法：传统的Document.execCommand()方法和现代的Clipboard API。
+        <h3>Clipboard API</h3>
+        ‌读取剪贴板内容‌：可以使用navigator.clipboard.read()或navigator.clipboard.readText()。
+        ‌写入剪贴板内容‌：可以使用navigator.clipboard.writeText()或navigator.clipboard.write()。
+    </div>
+    <div class="btnBox"><button class="copy">复制</button><button class="cut">粘贴</button></div>
+    <div class="cutText"></div>
+    <script>
+        var text = document.querySelector(".cpoyBox")
+        var copy = document.querySelector(".copy")
+        var cut = document.querySelector(".cut")
+        var cutText = document.querySelector(".cutText")
+
+        copy.addEventListener('click', function () {
+            // 使用 window.getSelection() 获取用户选中的文本
+            const selectedText = window.getSelection().toString();
+            if (selectedText) {
+                console.log("选中的文本是:", selectedText);
+                // 写入剪切板
+                navigator.clipboard.writeText(selectedText).then(()=>{
+                    console.log("写入成功");
+                }).catch((err)=>{
+                    console.log("写入失败",err);
+                })
+            } 
+        })
+        cut.addEventListener('click', function () {
+            navigator.clipboard.readText().then((text)=>{
+                console.log("读取成功",text);
+                cutText.innerHTML=`复制的内容是：${text}`
+            }).catch((err)=>{
+                console.log("读取失败",err);
+            })
+        })
+
+    </script>
+</body>
+
+</html>

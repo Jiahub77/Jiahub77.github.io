@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    canvas {
+        background-color: antiquewhite;
+    }
+</style>
+
+<body>
+    <canvas width="300" height="300"></canvas>
+</body>
+<script>
+    var canvas = document.querySelector('canvas')
+
+    var arr = [
+        { "label": "A", "value": 30 },
+        { "label": "B", "value": 50 },
+        { "label": "C", "value": 20 }
+    ]
+
+    var content = canvas.getContext('2d')
+    content.beginPath()
+    content.moveTo(150, 150)
+    content.arc(150, 150, 100, 0, 2 * Math.PI)
+    content.fillStyle = randomColor()
+    content.fill()
+    // 随机颜色
+    function randomColor() {
+        return '#' + Math.floor(Math.random() * 16777215).toString(16);
+    }
+
+    var star = 0
+    arr.forEach(item => {
+        var end = star + item.value * Math.PI / 180
+        console.log(end);
+
+        content.beginPath()
+        content.moveTo(150, 150)
+        content.arc(150, 150, 100, star, end)
+        content.fillStyle = randomColor()
+        content.fill()
+        
+        star = end
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+    }
+
+    .clock {
+        width: 300px;
+        height: 300px;
+        border: 10px solid #000;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    ul li {
+        width: 300px;
+        height: 10px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        top: 49%;
+        left: 0px;
+    }
+
+    ul li::after,
+    ul li::before {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        background-color: #000;
+        border-radius: 50%;
+
+    }
+
+    li:nth-child(1) {
+        transform: rotate(0deg)
+    }
+
+    li:nth-child(2) {
+        transform: rotate(30deg)
+    }
+
+    li:nth-child(3) {
+        transform: rotate(60deg)
+    }
+
+    li:nth-child(4) {
+        transform: rotate(90deg)
+    }
+
+    li:nth-child(5) {
+        transform: rotate(120deg)
+    }
+
+    li:nth-child(6) {
+        transform: rotate(150deg)
+    }
+
+    .hand {
+        position: absolute;
+        transform-origin: bottom center;
+        transform: rotate(90deg);
+        bottom: 50%;
+        left: 50%;
+        transform-origin: bottom;
+    }
+
+    .hour {
+        width: 8px;
+        height: 70px;
+        background-color: black;
+    }
+
+    .minute {
+        width: 6px;
+        height: 100px;
+        background-color: black;
+    }
+
+    .second {
+        width: 2px;
+        height: 120px;
+        background-color: red;
+    }
+
+    .center {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: black;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<body>
+    <div class="clock">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="center"></div>
+        <div class="hand hour"></div>
+        <div class="hand minute"></div>
+        <div class="hand second"></div>
+    </div>
+</body>
+<script>
+    var ul = document.querySelector("ul")
+    var h = document.querySelector(".hour")
+    var min = document.querySelector(".minute")
+    var sec = document.querySelector(".second")
+
+    setInterval(function () {
+        var time = new Date()
+        var hours = time.getHours()
+        var minutes = time.getMinutes()
+        var seconds = time.getSeconds()
+        console.log(hours, minutes, seconds);
+
+        hourAngle = (hours % 12) * 30
+        minAngle = minutes * 6
+        secAngle = seconds * 6
+
+        console.log(hourAngle, minAngle, secAngle);
+        h.style.transform = `rotate(${hourAngle}deg)`
+        min.style.transform = `rotate(${minAngle}deg)`
+        sec.style.transform = `rotate(${secAngle}deg)`
+    }, 1000)
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .flex {
+        display: flex;
+    }
+
+    .stage {
+        width: 400px;
+        height: 252px;
+        position: relative;
+    }
+
+    .stage :hover {
+        cursor: zoom-in;
+    }
+
+    .stage img {
+        width: 100%;
+        /* height: 100%; */
+        /* object-fit: cover; */
+    }
+
+    .stage .mask {
+        width: 200px;
+        height: 126px;
+        background-color: rgba(255, 255, 255, 0.2);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .preview {
+        width: 400px;
+        height: 252px;
+        margin-left: 8px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .preview img {
+        width: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .imgBox {
+        margin: 8px 0;
+        width: 400px;
+        justify-content: space-between
+    }
+
+    .imgBox :hover {
+        cursor: pointer;
+    }
+
+    .imgBox img {
+        width: 130px;
+        height: 60px;
+        /* object-fit: cover; */
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="flex">
+        <div class="stage">
+            <img src="./image/1.jpg" alt="">
+            <div class="mask hide"></div>
+        </div>
+        <div class="preview">
+            <img class="hide" src="./image/1.jpg" alt="">
+        </div>
+    </div>
+    <div class="imgBox flex">
+        <img src="./image/1.jpg" alt="">
+        <img src="./image/2.jpg" alt="">
+        <img src="./image/5.jpg" alt="">
+        <img src="./image/3.jpg" alt="">
+
+    </div>
+    <div>
+        <b>放大镜倍数：<span>2</span></b>
+        <input type="range" min="2" max="10" value="2">
+    </div>
+    <script>
+        var stage = document.querySelector(".stage")
+        var stageImg = document.querySelector(".stage img")
+        var mask = document.querySelector(".mask")
+        var preview = document.querySelector(".preview img")
+        var inp = document.querySelector("input")
+        var span = document.querySelector("span")
+        var imgs = document.querySelectorAll(".imgBox img")
+
+        // 默认放大倍数
+        var amplify = 2
+        // mask蒙版位置
+        var maskX, maskY
+        //图片切换定时器
+        var timer
+
+        // 图片切换
+        imgs.forEach(item => {
+            item.addEventListener("click", function (e) {
+                stageImg.src = item.src
+                preview.src = item.src
+            })
+            // console.log(item.getAttribute("index"));
+
+        })
+        function swiper() {
+            var index = 0
+            clearInterval(timer)
+            timer = setInterval(function () {
+                index = (index + 1) % imgs.length; // 循环切换图片
+                stageImg.src = imgs[index].src;
+                preview.src = imgs[index].src;
+            }, 3000)
+        }
+
+        // 获取放大倍数
+        inp.onchange = function () {
+            span.innerText = inp.value
+            amplify = inp.value
+            getMask(amplify)
+        }
+        function getMask(amplify) {
+            mask.style.width = stage.offsetWidth / amplify + "px"
+            mask.style.height = stage.offsetHeight / amplify + "px"
+            preview.style.width = amplify * 100 + "%"
+        }
+
+        stage.addEventListener("mousemove", function (e) {
+            mask.classList.remove("hide")
+            preview.classList.remove("hide")
+            clearInterval(timer)
+            // 鼠标位置 在蒙版 居中
+            maskX = e.clientX - stage.offsetLeft - mask.offsetWidth/2
+            maskY = e.clientY - stage.offsetTop - mask.offsetHeight/2
+
+            //阻止mask偏移
+            if (maskX < 0) {
+                maskX = 0
+            } else if (maskX > stage.offsetWidth - mask.offsetWidth) {
+                maskX = stage.offsetWidth - mask.offsetWidth
+            }
+            if (maskY < 0) {
+                maskY = 0
+            } else if (maskY > stage.offsetHeight - mask.offsetHeight) {
+                maskY = stage.offsetHeight - mask.offsetHeight
+            }
+            mask.style.left = maskX + "px"
+            mask.style.top = maskY + "px"
+
+            // 放大后的view
+
+            preview.style.left = -maskX * amplify + "px"
+            preview.style.top = -maskY * amplify + "px"
+        })
+        // stage.addEventListener("mouseout", function () {
+        //     // mask.classList.add("hide")
+        //     // preview.classList.add("hide")
+        //     swiper()
+        // })
+
+        stage.addEventListener("mouseout", function (e) {
+            if (!stage.contains(e.relatedTarget)) {
+                mask.classList.add("hide");
+                preview.classList.add("hide");
+                swiper();
+            }
+        });
+
+        swiper()
+
+    </script>
+</body>
+
+</html>

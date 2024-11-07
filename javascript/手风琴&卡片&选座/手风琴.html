@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 600px;
+        height: 400px;
+        margin: 40px auto;
+        display: flex;
+    }
+
+    .img {
+        flex: 1;
+        transition: 0.5s ease;
+        position: relative;
+        margin: 8px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .img>img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .active {
+        flex: 6
+    }
+
+    .numBox {
+        width: 40px;
+        height: 90px;
+        background-color: rgba(226, 227, 226, 0.7);
+        position: absolute;
+        left: 0;
+        top: 20px;
+        text-align: center;
+        line-height: 90px;
+    }
+
+    .hide {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="img active">
+            <div class="numBox hide">01</div><img src="./image/1.jpg" alt="">
+        </div>
+        <div class="img">
+            <div class="numBox">02</div><img src="./image/2.jpg" alt="">
+        </div>
+        <div class="img">
+            <div class="numBox">03</div><img src="./image/3.jpg" alt="">
+        </div>
+        <div class="img">
+            <div class="numBox">04</div><img src="./image/4.jpg" alt="">
+        </div>
+        <div class="img">
+            <div class="numBox">05</div><img src="./image/5.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var img = document.querySelectorAll(".img")
+        img.forEach((item, index) => {
+            item.addEventListener('mouseover', function () {
+                clearInterval(timer)
+                img.forEach(el => {
+                    el.classList.remove("active")
+                    el.querySelector(".numBox").classList.remove("hide")
+                });
+                item.classList.add("active")
+                // console.log(item.querySelector(".numBox"));
+                item.querySelector(".numBox").classList.add("hide")
+            })
+            item.addEventListener('mouseout', function () {
+                swiper(index)
+            })
+        });
+
+        var timer
+        function swiper(index) {
+            timer = setInterval(function () {
+                img.forEach(el => {
+                    el.classList.remove("active")
+                    el.querySelector(".numBox").classList.remove("hide")
+                });
+                img[index].classList.add("active")
+                img[index].querySelector(".numBox").classList.add("hide")
+                if (index < img.length - 1) {
+                    index++
+                } else {
+                    index = 0
+                }
+            }, 2000)
+        }
+        swiper(0)
+
+    </script>
+
+</body>
+
+</html>

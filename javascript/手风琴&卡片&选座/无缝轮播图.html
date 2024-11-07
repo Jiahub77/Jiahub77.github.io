@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .swiper {
+        width: 900px;
+        position: relative;
+    }
+
+    .box {
+        width: 900px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .img {
+        transition: 0.5s ease;
+        position: relative;
+    }
+
+    .img>img {
+        width: 900px;
+        height: 400px;
+        transition: 0.5s ease;
+        object-fit: cover;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: .625rem;
+        left: 40%;
+        display: flex;
+    }
+
+    .dots div {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        background-color: bisque;
+        margin: 0 .625rem;
+    }
+
+    .dot-active {
+        background-color: rgb(251, 196, 129) !important;
+    }
+
+    .prev {
+        position: absolute;
+        left: 0;
+        top: 45%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgba(251, 196, 129, 0.8);
+        font-size: 24px;
+        color: #fff;
+        line-height: 37px;
+
+    }
+
+    .next {
+        position: absolute;
+        top: 45%;
+        left: 860px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: rgba(251, 196, 129, 0.8);
+        font-size: 24px;
+        color: #fff;
+        line-height: 37px;
+    }
+</style>
+
+<body>
+    <div class="swiper">
+        <div class="box">
+            <div class="img active">
+                <img src="./image/1.jpg" alt="">
+            </div>
+            <div class="img">
+                <img src="./image/2.jpg" alt="">
+            </div>
+            <div class="img">
+                <img src="./image/3.jpg" alt="">
+            </div>
+            <div class="img">
+                <img src="./image/4.jpg" alt="">
+            </div>
+            <div class="img">
+                <img src="./image/5.jpg" alt="">
+            </div>
+        </div>
+        <div class="dots">
+            <div class="dot-active"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="prev">⬅</div>
+        <div class="next">➡</div>
+    </div>
+    <script>
+        var img = document.querySelector(".img")
+        var imgs = document.querySelectorAll(".img")
+        var dots = document.querySelectorAll(".dots div")
+        var prev = document.querySelector(".prev")
+        var next = document.querySelector(".next")
+
+        var cloneImg = img.cloneNode(true)
+        console.log(cloneImg);
+        document.querySelector(".box").appendChild(cloneImg)
+        var index = 0
+        var timer
+        next.addEventListener("click", () => {
+            clearInterval(timer)
+            index++
+            img.style.transition = "all 1s"
+            img.style.marginLeft = index * -900 + "px"
+            if (index > 4) {
+                setTimeout(function () {
+                    index = 0
+                    img.style.transition = "none"
+                    img.style.marginLeft = index * -900 + "px"
+                }, 1000)
+            }
+            // console.log(index);
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("dot-active", idx === (index%imgs.length));
+            });
+            swiper()
+        })
+        prev.addEventListener("click", () => {
+            clearInterval(timer)
+            index--
+            if (index == -1) {
+                img.style.marginLeft = 5 * -900 + "px"
+                img.style.transition = "none"
+                index = 4
+
+                setTimeout(function () {
+                    img.style.marginLeft = index * -900 + "px"
+                    img.style.transition = "all 1s"
+                }, 0)
+            } else {
+                img.style.marginLeft = index * -900 + "px"
+            }
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("dot-active", idx === (index%imgs.length));
+            });
+            console.log(index%imgs.length);
+            
+            swiper()
+        })
+
+
+        function swiper() {
+            timer = setInterval(function () {
+                index++
+                img.style.transition = "all 1s"
+                img.style.marginLeft = index * -900 + "px"
+                if (index > 4) {
+                    setTimeout(function () {
+                        index = 0
+                        img.style.transition = "none"
+                        img.style.marginLeft = index * -900 + "px"
+                    }, 1000)
+                }
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle("dot-active", idx === (index%imgs.length));
+                });
+                // console.log(index);
+
+            }, 2000)
+        }
+        swiper()
+
+        // 图片悬停关闭定时器
+        imgs.forEach((item, index) => {
+            item.addEventListener("mouseover", () => {
+                clearInterval(timer)
+            })
+            item.addEventListener("mouseout", () => {
+                swiper(timer)
+            })
+        })
+
+        // 更新图片位置和小点的状态
+        function updateActive(i) {
+            index = i
+            img.style.marginLeft = index * -900 + "px"
+            img.style.transition = "all 0.5s"
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle("dot-active", idx === (index%imgs.length));
+            });
+        }
+        // dots控制图片
+        dots.forEach((item, i) => {
+            item.addEventListener('mouseover', function () {
+                clearInterval(timer)
+                updateActive(i)
+                swiper()
+            })
+        });
+    </script>
+</body>
+
+</html>

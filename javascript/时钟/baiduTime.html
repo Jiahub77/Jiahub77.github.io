@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes second-hand {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotateX(180deg);
+            opacity: 0;
+        }
+    }
+
+    .box {
+        width: 600px;
+        height: 327px;
+        border-radius: 20px;
+        overflow: hidden;
+        background-image: url(https://gips0.baidu.com/it/u=567037999,4238421755&fm=3028&app=3028&f=PNG&fmt=auto&q=75&size=f1184_845);
+        background-size: cover;
+    }
+
+    .local {
+        font: 18px / 24px Arial, sans-serif;
+        font-weight: 400;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .time {
+        width: 300px;
+        height: 80px;
+        margin: auto;
+        font: 60px Arial, sans-serif;
+        font-weight: 400;
+        line-height: 80px;
+        color: #fff;
+        text-align: center;
+        display: flex;
+        justify-content: space-evenly;
+        position: relative;
+    }
+
+    .bg {
+        width: 80px;
+        height: 80px;
+        border-radius: 14px;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .sunset {
+        font: 16px Arial, sans-serif;
+        color: #fff;
+        padding-top: 16px;
+        text-align: center;
+    }
+
+    .day {
+        font: 16px Arial, sans-serif;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    canvas {
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="local">中国北京时间 UTC+8</div>
+        <div class="time">
+            <div class="bg hours"></div>
+            <span>:</span>
+            <div class="bg minutes"></div>
+            <span>:</span>
+            <div class="bg seconds"></div>
+        </div>
+        <div class="sunset"></div>
+        <canvas width="600" height="140"></canvas>
+
+    </div>
+
+    <script>
+        var dTime = document.querySelector(".day")
+        var day = new Date()
+        let sunsetBeijingTime, sunriseBeijingTime
+
+        function getTime() {
+            setInterval(function () {
+                var time = new Date()
+                var hours = time.getHours();   // 获取小时
+                hours = String(hours).padStart(2, '0')
+                var minutes = time.getMinutes();  // 获取分钟
+                minutes = String(minutes).padStart(2, '0')
+                var seconds = time.getSeconds();  // 获取秒
+                seconds = String(seconds).padStart(2, '0')
+                document.querySelector(".hours").innerText = hours
+                document.querySelector(".minutes").innerText = minutes
+                document.querySelector(".seconds").innerText = seconds
+            }, 1000)
+        }
+        getTime()
+        // 北京的经纬度坐标：纬度 39.9042, 经度 116.4074
+        const latitude = 39.9042;
+        const longitude = 116.4074;
+
+        fetch(`https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&formatted=0`)
+            .then(response => response.json())
+            .then(data => {
+                let sunsetUTC = new Date(data.results.sunset); // 获取 UTC 时间
+                sunsetBeijingTime = new Date(sunsetUTC.getTime()); // 转换为北京时间 (UTC+8)
+
+                let sunriseUTC = new Date(data.results.sunrise); // 获取 UTC 时间
+                sunriseBeijingTime = new Date(sunriseUTC.getTime()); // 转换为北京时间 (UTC+8)
+
+                let currentTime = new Date(); // 当前时间
+
+                // 如果当前时间已经超过当天的日出时间，那么加 24 小时以获取第二天的日出时间
+                if (currentTime > sunriseBeijingTime) {
+                    sunriseBeijingTime = new Date(sunriseBeijingTime.getTime() + 24 * 60 * 60 * 1000);
+                }
+                if (currentTime < sunsetBeijingTime) {
+                    // 距离日落时间
+                    setInterval(() => {
+                        currentTime = new Date();
+                        let total = sunsetBeijingTime - currentTime;
+                        let hours = Math.floor(total / 3600000);
+                        let minutes = Math.floor((total % 3600000) / 60000);
+                        document.querySelector(".sunset").innerText = `距离北京日落 ${sunsetBeijingTime.toLocaleTimeString()} 还有 ${hours} 小时 ${minutes} 分`;
+                    }, 1000)
+                } else if (currentTime < sunriseBeijingTime) {
+                    // 距离下一个日出时间
+                    setInterval(() => {
+                        currentTime = new Date();
+                        let total = sunriseBeijingTime - currentTime;
+                        let hours = Math.floor(total / 3600000);
+                        let minutes = Math.floor((total % 3600000) / 60000);
+                        document.querySelector(".box").style.backgroundImage = `url("https://gips3.baidu.com/it/u=1743996582,3792202273&fm=3028&app=3028&f=PNG&fmt=auto&q=75&size=f1184_840")`
+                        document.querySelector(".sunset").innerText = `距离下一个日出 ${sunriseBeijingTime.toLocaleTimeString()} 还有 ${hours} 小时 ${minutes} 分`;
+                    }, 1000)
+                }
+                // 获取并设置日出和日落时间
+                animateSun()
+            })
+            .catch(error => console.log("获取日出日落时间失败: ", error));
+
+        // canvas 太阳
+        var canvas = document.querySelector('canvas')
+        var context = canvas.getContext('2d')
+
+        // 动画函数：更新太阳的位置
+        function animateSun() {
+            const currentTime = new Date();
+            const hours = currentTime.getHours();
+            const minutes = currentTime.getMinutes();
+            const seconds = currentTime.getSeconds();
+
+            // 将当前时间转化为一天中的秒数
+            const secondsSinceMidnight = hours * 3600 + minutes * 60 + seconds;
+            const totalSecondsInDay = 24 * 3600; // 一天的总秒数
+
+            // 计算当前时间在全天中的比例
+            const dayProgress = secondsSinceMidnight / totalSecondsInDay;
+
+            // 定义太阳的 x 坐标范围
+            const startX = 150;
+            const endX = 450;
+
+            // 根据全天进度计算太阳的 x 坐标
+            const sunX = startX + (endX - startX) * dayProgress;
+
+            // 绘制太阳
+            drawSun(sunX);
+
+            // 循环调用动画
+            requestAnimationFrame(animateSun);
+        }
+
+
+        function drawSun(x) {
+            context.clearRect(0, 0, canvas.width, canvas.height); // 清除上一帧内容
+            drawTimeLine(sunriseBeijingTime, sunsetBeijingTime)
+            // 绘制太阳
+            context.beginPath();
+            context.fillStyle = '#FFD700';
+            context.arc(x, 30, 10, 0, 2 * Math.PI);
+            context.fill();
+        }
+
+        function drawTimeLine(rise, set) {
+            var day = new Date()
+
+            // 渐变
+            context.beginPath();
+            var g = context.createLinearGradient(200, 200, 400, 200);
+            g.addColorStop(0, "#ededed38")
+            g.addColorStop(0.5, "#FFD700")
+            g.addColorStop(1, "#ededed38")
+            context.strokeStyle = g
+            // 曲线
+            context.moveTo(150, 30)
+            context.lineWidth = 2;
+            context.lineTo(450, 30)
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = "#fff"
+            context.font = '16px sans-serif';
+            context.fillText(`${day.toLocaleDateString()}`, 250, 100);
+
+            context.beginPath();
+            context.fillStyle = "#fff"
+            context.fillText(`日出${rise.toLocaleTimeString()}`, 160, 60);
+
+            context.beginPath();
+            context.fillStyle = "#fff"
+            context.fillText(`日落${set.toLocaleTimeString()}`, 300, 60);
+
+            // context.beginPath()
+            // context.strokeStyle = "#ededed38"
+            // context.moveTo(100,80)
+            // context.lineTo(500,80)
+            // context.stroke()
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>

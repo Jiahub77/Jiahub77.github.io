@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #7b7b7b;
+}
+/* 头部样式 */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.header {
+    background-color: #fff;
+    box-shadow: 1px 2px 4px 0 #ccc;
+}
+
+.h-title {
+    width: 100%;
+    height: 30px;
+    background-color: #333;
+    line-height: 30px;
+}
+
+.h-title>div {
+    width: 1185px;
+    margin: auto;
+    text-align: right;
+    font-size: 12px;
+}
+
+.h-title a {
+    color: #fff;
+}
+
+.h-main {
+    width: 1185px;
+    height: 76px;
+    margin: auto;
+    padding: 24px;
+    overflow: hidden;
+    /* 清除浮动 */
+}
+
+.logo {
+    width: 215px;
+    height: 60px;
+    background: url('../切图/logo.png');
+    float: left;
+}
+
+.search {
+    width: 400px;
+    height: 38px;
+    float: left;
+    margin: 13px 168px;
+    /* 给搜索框和logo之间增加间距 */
+    display: flex;
+    position: relative;
+}
+
+.search>input {
+    width: 300px;
+    border-radius: 18px 0 0 18px;
+    border: solid 2px #2b6e5a;
+    float: left;
+}
+.search>img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 20px;
+    top: 12px;
+}
+.search>input::placeholder {
+    color: #999999;
+    font-size: 12px;
+    text-align: center;
+}
+
+.search>div {
+    width: 100px;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    background-color: #2b6e5a;
+    border-radius: 0 16px 16px 0;
+    float: left;
+}
+
+.car {
+    width: 150px;
+    height: 38px;
+    border-radius: 19px;
+    border: solid 1px #060001;
+    text-align: center;
+    font-size: 16px;
+    line-height: 38px;
+    float: right;
+    margin-top: 13px;
+    position: relative;
+}
+.car>span::before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    background: url("../切图/图标/购物车.png");
+}
+
+.car .num {
+    width: 21px;
+    height: 21px;
+    background-color: #e62213;
+    border-radius: 50%;
+    color: #fff;
+    line-height: 1.4;
+    float: right;
+    margin: 8px 8px 0 -30px;
+}
+/* 导航栏样式 */
+/* 导航栏样式 */
+.navbar {
+    width: 1185px;
+    text-align: center;
+    overflow: hidden;
+    /* 清除浮动 */
+    margin: auto;
+}
+.m-auto{
+    width: 504px;
+    /* margin: auto; */
+}
+
+.navbar>li {
+    float: left;
+    width: 56px;
+    height: 40px;
+    margin-right: 15px;
+    color: #7b7b7b;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+}
+
+.navbar>li>a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navbar>li>a:hover {
+    color: #2b6e5a;
+}
+
+.navbar>li>a.active {
+    color: #2b6e5a;
+}
+/* 底部样式 */
+.footer {
+    width: 1920px;
+    background-color: #222222;
+    color: #fff;
+}
+
+.ft {
+    width: 1185px;
+    margin: auto;
+    /* display: flex; */
+    justify-content: space-between;
+    border-bottom: 1px solid #878787;
+    overflow: hidden;
+}
+
+.ft>div {
+    padding: 40px;
+    text-align: center;
+    float: left;
+    margin: 0 42px;
+}
+
+.fb {
+    width: 1185px;
+    margin: auto;
+    padding: 40px;
+    /* display: flex;
+    justify-content: space-between; */
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 30px;
+}
+
+.fb>img {
+    width: 215px;
+    height: 60px;
+}
+
+.fb ul li:nth-child(1) {
+    font-size: 16px;
+}
+
+.fb ul{
+    float: right;
+    margin: 0 60px;
+}

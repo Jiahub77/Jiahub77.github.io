@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 80px;
+        height: 80px;
+        background-color: palevioletred;
+    }
+
+    .target {
+        width: 200px;
+        height: 200px;
+        margin-top: 30px;
+        border: 1px solid #000;
+    }
+</style>
+
+<body>
+    <div class="box" draggable="true"></div>
+    <div class="target" droppable="true"></div>
+    <script>
+        var box = document.querySelector('.box')
+        var target = document.querySelector('.target')
+        // 开始拖拽
+        box.addEventListener('dragstart', function (e) {
+            console.log(e);
+            // 定义数据
+            e.dataTransfer.setData('text/plain', '开始拖拽')
+            e.dataTransfer.setData('text/html', this.outerHTML)
+            e.dataTransfer.setData('text/url-list', e.target.ownerDocument.location.href)
+            // 设置拖拽时动态跟随的图像
+            var img = new Image()
+            img.src = ''
+            e.dataTransfer.setDragImage(img, 10, 10)
+        })
+        box.addEventListener('drag', function () {
+            // console.log("正在拖拽");
+        })
+        box.addEventListener('dragend', function () {
+            // console.log("结束拖拽");
+        })
+        target.addEventListener('dragenter', function () {
+            // console.log("进入目标区域dragenter");
+        })
+        target.addEventListener('dragover', function (e) {
+            e.preventDefault()
+            // console.log("进入目标区域dragover");
+        })
+        target.addEventListener('drop', function (e) {
+            e.preventDefault()
+            console.log("拖放到目标元素了");
+            // 获取数据
+            var textData = e.dataTransfer.getData('text/plain');
+            var htmlData = e.dataTransfer.getData('text/html');
+            var urlData = e.dataTransfer.getData('text/url-list');
+
+            // 打印获取的数据
+            console.log('纯文本数据:', textData);
+            console.log('HTML数据:', htmlData);
+            console.log('URL列表:', urlData);
+            target.innerHTML = htmlData
+        })
+    </script>
+</body>
+
+</html>

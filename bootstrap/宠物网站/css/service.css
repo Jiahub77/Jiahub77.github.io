@@ -1,0 +1,133 @@
+body .header {
+  width: 100%;
+  height: 90px;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  background: url("../img/bg1.jpg");
+  animation-name: animationFade;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
+  line-height: 50px;
+}
+body .header .navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+body #banner {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: url("../img/bg1.jpg");
+  background-size: cover;
+}
+body #banner .banner-heading {
+  font-size: 65px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-align: center;
+}
+body #banner .banner-text {
+  font-size: 24px;
+  font-weight: normal;
+  font-family: 'Roboto', sans-serif;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: -13px;
+}
+body #banner .banner-img {
+  position: absolute;
+}
+body #banner .banner-img img {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  transform: translateY(-86px);
+  margin-left: -8px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.1);
+}
+body .service {
+  padding: 70px;
+}
+body .service img {
+  width: 100%;
+  border-radius: 20px;
+}
+body .service h1 {
+  font-size: 30px;
+  line-height: 2.5rem;
+  font-weight: bold;
+  margin-top: 16px;
+}
+body .service p {
+  font-size: 16px;
+  text-align: justify;
+  line-height: 40px;
+}
+body .service .text {
+  padding: 40px;
+}
+body .bg {
+  padding: 60px;
+  margin: 20px auto;
+  background: url("../img/bg10.jpg");
+  border-radius: 20px;
+  text-align: center;
+  background-size: cover;
+}
+body .bg h1 {
+  width: 80%;
+  margin: auto;
+  font-size: 50px;
+  font-weight: 600;
+  color: #fff;
+  padding: 20px;
+}
+body .bg p {
+  font-size: 24px;
+  line-height: 32px;
+  color: #CCC0A5;
+  padding-top: 10px;
+}
+body .bg .contact-btn {
+  width: 116px;
+  height: 40px;
+  margin: 20px auto;
+  background-color: #695343;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 20px;
+}
+body .footer {
+  background-color: #695343;
+  border-radius: 20px 20px 0 0;
+  padding: 40px;
+  color: #CCC0A5;
+}
+body .footer img {
+  max-width: 20px;
+}
+body .footer p {
+  font-size: 16px;
+  padding: 20px 0;
+}
+body .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+body .footer ul li {
+  padding: 12px;
+}
+body .up-btn {
+  position: fixed;
+  bottom: 6%;
+  right: 4%;
+  color: #ff830e;
+}
+body .up-btn a {
+  color: #ff830e;
+}
+/*# sourceMappingURL=./service.css.map */

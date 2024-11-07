@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        user-select: none;
+        z-index: 1;
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .screen {
+        width: 375px;
+        height: 667px;
+        display: flex;
+        justify-content: space-around;
+        background-image: url('../手风琴&卡片&选座/image/2.jpg');
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+        margin: 8px auto;
+        position: relative;
+    }
+
+    .blur {
+        width: 375px;
+        height: 667px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, .1);
+        backdrop-filter: blur(10px);
+        z-index: 0;
+    }
+
+    .songImg {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .songImg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .viewport {
+        width: 375px;
+        height: 260px;
+        text-align: center;
+        cursor: pointer;
+        overflow-y: auto;
+        /* scroll-behavior: smooth;  */
+        /* 隐藏滚动条 */
+        scrollbar-width: none;
+    }
+
+    .item {
+        height: 20px;
+    }
+
+
+    .active {
+        padding: 12px;
+        font-size: 20;
+        font-weight: bold;
+        background-color: rgba(255, 255, 255, 0.24);
+        position: relative;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    button {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    audio {
+        margin: 18px 0;
+        width: 300px;
+        height: 60px;
+    }
+</style>
+
+<body>
+    <!-- 音乐url https://music.163.com/song/media/outer/url?id=33894312.mp3 -->
+    <!-- 音乐歌词 https://apis.netstart.cn/music/lyric?id=33894312 -->
+
+    <div class="screen">
+        <div class="blur"></div>
+        <div class="songImg"><img src="../手风琴&卡片&选座/image/5.jpg" alt=""></div>
+
+        <div class="viewport"></div>
+        <audio controls src="https://music.163.com/song/media/outer/url?id=33894312.mp3"></audio>
+
+        <div class="btn">
+            <button class="prev-button">Previous</button>
+            <button class="next-button">Next</button>
+        </div>
+    </div>
+    <script>
+        var viewport = document.querySelector(".viewport")
+        var audio = document.querySelector("audio")
+
+        // 歌曲
+        var song = ["https://music.163.com/song/media/outer/url?id=33894311.mp3", "https://music.163.com/song/media/outer/url?id=33894312.mp3"]
+        // 歌词
+        var lyric =
+            "[00:00.000] 作词 : 张国祥\n[00:01.000] 作曲 : 汤小康\n[00:04.050]\n[00:12.570]难以忘记初次见你\n[00:16.860]一双迷人的眼睛\n[00:21.460]在我脑海里\n[00:23.960]你的身影 挥散不去\n[00:30.160]握你的双手感觉你的温柔\n[00:34.940]真的有点透不过气\n[00:39.680]你的天真 我想珍惜\n[00:43.880]看到你受委屈 我会伤心\n[00:48.180]喔\n[00:50.340]只怕我自己会爱上你\n[00:55.070]不敢让自己靠的太近\n[00:59.550]怕我没什么能够给你\n[01:04.030]爱你也需要很大的勇气\n[01:08.190]只怕我自己会爱上你\n[01:12.910]也许有天会情不自禁\n[01:17.380]想念只让自己苦了自己\n[01:21.840]爱上你是我情非得已\n[01:28.810]难以忘记初次见你\n[01:33.170]一双迷人的眼睛\n[01:37.700]在我脑海里 你的身影 挥散不去\n[01:46.360]握你的双手感觉你的温柔\n[01:51.120]真的有点透不过气\n[01:55.910]你的天真 我想珍惜\n[02:00.150]看到你受委屈 我会伤心\n[02:04.490]喔\n[02:06.540]只怕我自己会爱上你\n[02:11.240]不敢让自己靠的太近\n[02:15.750]怕我没什么能够给你\n[02:20.200]爱你也需要很大的勇气\n[02:24.570]只怕我自己会爱上你\n[02:29.230]也许有天会情不自禁\n[02:33.680]想念只让自己苦了自己\n[02:38.140]爱上你是我情非得已\n[03:04.060]什么原因 耶\n[03:07.730]我竟然又会遇见你\n[03:13.020]我真的真的不愿意\n[03:16.630]就这样陷入爱的陷阱\n[03:20.700]喔\n[03:22.910]只怕我自己会爱上你\n[03:27.570]不敢让自己靠的太近\n[03:32.040]怕我没什么能够给你\n[03:36.560]爱你也需要很大的勇气\n[03:40.740]只怕我自己会爱上你\n[03:45.460]也许有天会情不自禁\n[03:49.990]想念只让自己苦了自己\n[03:54.510]爱上你是我情非得已\n[03:58.970]爱上你是我情非得已\n[04:03.000]\n"
+
+        // 对歌词进行格式转换
+        var lyricArr = lyric.split("\n").filter(item => { return item != "" })
+        console.log(lyricArr);
+
+        var parsedLyric = lyricArr.map((item, index) => {
+            var res = item.match(/\[(?<m>\d{2}):(?<s>\d{2}\.\d{3})\](?<str>.*)/i)
+            console.log(res);
+
+            return {
+                time: res.groups.m * 60 + parseFloat(res.groups.s),
+                text: res.groups.str || "---"
+            }
+        })
+
+        // 创建歌词item
+        parsedLyric.forEach(lyric => {
+            // console.log(lyric.text);
+            var item = document.createElement("p")
+            item.classList.add("item")
+            item.dataset.time = lyric.time
+            item.innerText = lyric.text
+            viewport.appendChild(item)
+        })
+
+        var lyricItems = document.querySelectorAll(".item")
+        // 反转数组
+        var reversedLyric = parsedLyric.reverse()
+        var isAutoScroll = true
+        // 监听播放,返回播放时间
+        audio.addEventListener("timeupdate", function () {
+            if (!isAutoScroll) return
+            // console.log(audio.currentTime);
+            // 反转数组,查找对应歌词
+            var currentObj = reversedLyric.find(item => {
+                return item.time <= audio.currentTime
+            })
+            //去除 active类
+            document.querySelectorAll('.active').forEach(item => {
+                item.classList.remove('active');
+            });
+            Array.prototype.slice.call(lyricItems).forEach(item => {
+                if (item.dataset.time == currentObj.time) {
+                    item.classList.add("active")
+                    // 歌词居中
+                    requestAnimationFrame(() => {
+                        var viewportHeight = viewport.clientHeight / 2;
+                        var lyricHeight = item.clientHeight / 2;
+                        var lyricScrollTop = item.offsetTop;
+                        // 计算并设置 scrollTop，确保歌词居中显示
+                        var newScrollTop = lyricScrollTop - viewportHeight + lyricHeight - 300;
+                        viewport.scrollTo({
+                            top: newScrollTop,
+                            behavior: 'smooth'  // 添加平滑滚动效果
+                        });
+                    })
+                }
+            })
+        })
+
+        // 用户手动滚动时，暂停自动滚动
+        var timer
+        viewport.addEventListener("scroll", function () {
+            isAutoScroll = false; // 暂停自动滚动
+            clearTimeout(timer); // 清除之前的定时器
+            // 在用户停止滚动2秒后恢复自动滚动
+            timer = scrollTimeout = setTimeout(function () {
+                isAutoScroll = true;
+            }, 2000);
+        });
+
+        // 事件委托,给每句歌词添加事件
+        // 双点击歌词,切换到那一句
+        viewport.addEventListener("dblclick", function (event) {
+            if (event.target.tagName == "P") {
+                audio.currentTime = event.target.dataset.time
+                // console.log(event.target.dataset.time, audio.currentTime);
+            }
+        })
+
+        // 上一首,下一首
+        var prev = document.querySelector(".prev-button")
+        var next = document.querySelector(".next-button")
+        var number = 1
+        prev.addEventListener("click", function (event) {
+            console.log(number = Math.abs(number - 1) % song.length);
+            audio.src = song[number]
+            audio.play()
+        })
+        next.addEventListener("click", function (event) {
+            console.log(number = Math.abs(number + 1) % song.length);
+            audio.src = song[number]
+            audio.play()
+        })
+
+        function rotate() {
+            var cicle = 0
+            var timer = setInterval(function () {
+                var songImg = document.querySelector(".songImg img")
+                songImg.style.transform = `rotate(${cicle}deg)`
+                cicle = cicle + 1
+            }, 16.6)
+        }
+    </script>
+</body>
+
+</html>

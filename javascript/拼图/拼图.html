@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgba(249, 212, 218, 0.217);
+    }
+
+    .orgin {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 15%;
+        left: 10%;
+    }
+
+    .orgin p {
+        color: #7b7b7b;
+    }
+
+    .orgin img {
+        width: 100%;
+    }
+
+    .orgin select {
+        width: 200px;
+        height: 30px;
+        text-align: center;
+    }
+
+    ul {
+        width: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+        position: relative;
+        transform: scale(0.7);
+        margin: 40px auto;
+    }
+
+    /* 图片尺寸 width: 600px;height: 6000px; */
+    ul li {
+        list-style: none;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        position: absolute;
+        transition: all 1s;
+    }
+
+    li.active {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 5px 3px #dadada;
+    }
+</style>
+
+<body>
+    <div class="orgin">
+        <p>完成图</p><img src="./2.jpg" alt="">
+        <select name="" id="">
+            <option value="3" selected>简单</option>
+            <option value="4">中等</option>
+            <option value="6">困难</option>
+            <option value="10">超简单</option>
+        </select>
+    </div>
+    <ul>
+    </ul>
+
+    <script>
+        var stage = document.querySelector("ul")
+        var diff = document.querySelector("select")
+
+        // 获取难度
+        var level = diff.value
+        var size = Math.floor(stage.offsetWidth / level)
+        diff.onchange = function () {
+            level = diff.value
+            size = Math.floor(stage.offsetWidth / level)
+            star()
+        }
+        star()
+
+        // 初始化拼图 li
+        var lis
+        function star() {
+            // 游戏开始前删除所有的 li
+            stage.innerHTML = ""
+            // 根据难度创建拼图块 li
+            for (var i = 0; i < (level * level); i++) {
+                var li = document.createElement("li")
+                var img = document.createElement("img")
+                img.src = "./2.jpg"
+                li.appendChild(img)
+                stage.appendChild(li)
+            }
+            lis = document.querySelectorAll("ul li")
+            //定义一个数组,为 li 的data-now排序
+            var sortArr = []
+            for (var i = 0; i < lis.length; i++) {
+                sortArr.push(i)
+            }
+            // 乱序排序
+            sortArr.sort(() => Math.random() - 0.5)
+
+            lis.forEach((li, index) => {
+                // 根据难度修改 li 的宽高
+                li.style.width = size + "px";
+                li.style.height = size + "px";
+
+                // 自定义属性，判断拼图是否完成
+                li.dataset.old = index;
+                li.dataset.new = sortArr[index];
+
+                // 动态根据 level 来设置 li 的位置
+                li.style.left = (li.dataset.new % level) * size + "px";
+                li.style.top = Math.floor((li.dataset.new / level)) * size + "px";
+
+                // 动态根据 level 来设置图片的偏移
+                li.querySelector("img").style.marginLeft = (index % level) * -size + "px";
+                li.querySelector("img").style.marginTop = Math.floor((index / level)) * -size + "px";
+            });
+        }
+
+        // clickArr存放点击的 li
+        var clickArr = []
+
+        stage.addEventListener("click", (event) => {
+            // console.log(event.target.parentNode);
+            // 获取点击的元素，判断是否为img
+            var target = event.target
+            if (target.tagName == "IMG") {
+                target = target.parentNode
+            }
+            // console.log(target);
+            if (target.tagName == "LI") {
+                clickArr.push(target)
+                target.classList.add("active")
+            }
+            if (clickArr.length == 2) {
+                // 交换排序位置值
+                var temp = clickArr[0].dataset.new
+                clickArr[0].dataset.new = clickArr[1].dataset.new
+                clickArr[1].dataset.new = temp
+                // debugger
+                console.log(clickArr, clickArr[0].dataset.new, clickArr[1].dataset.new);
+                // 交换完重新计算li
+                clickArr.forEach(li => {
+                    li.style.left = (li.dataset.new % level) * size + "px"
+                    li.style.top = Math.floor((li.dataset.new / level)) * size + "px"
+                    li.classList.remove("active")
+                })
+                // 清除数组（垃圾回收）
+                clickArr = []
+            }
+
+            // 类数组转换成数组 ArrayArray.prototype.slice.call()
+            // 判断游戏是否成功
+            var isWin = Array.prototype.slice.call(lis).every((li) => {
+                return li.dataset.old == li.dataset.new
+            })
+            setTimeout(() => {
+                if (isWin) alert("牛逼啊你");
+            }, 1000)
+        })
+
+    </script>
+</body>
+
+</html>

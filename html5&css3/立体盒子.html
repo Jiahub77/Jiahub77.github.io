@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @keyframes demo {
+        0% {
+            transform: translate3d(100px, 100px, 100px) rotate3d(1, 1, 1, 0deg);
+        }
+
+        100% {
+            transform: translate3d(100px, 100px, 100px) rotate3d(1, 1, 1, 360deg);
+        }
+    }
+
+    body {
+        background-color: aliceblue;
+    }
+
+    ul {
+        width: 500px;
+        height: 500px;
+        margin: auto;
+        list-style: none;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        transform: translate(100px, 100px) rotate3d(1, 1, 0, -30deg);
+        transform-style: preserve-3d;
+        animation: demo 4s linear infinite;
+    }
+
+    li {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        line-height: 200px;
+    }
+
+    ul>li:nth-child(1) {
+        background-color: orchid;
+        opacity: .5;
+    }
+
+    ul>li:nth-child(2) {
+        background-color: pink;
+        opacity: .5;
+        transform: translate3d(0, -100px, -100px) rotateX(90deg);
+    }
+
+    ul>li:nth-child(3) {
+        background-color: yellow;
+        opacity: .5;
+        transform: translate3d(100px, 0, -100px) rotateY(90deg);
+    }
+
+    ul>li:nth-child(4) {
+        background-color: yellowgreen;
+        opacity: .5;
+        transform: translate3d(-100px, 0, -100px) rotateY(90deg);
+    }
+
+    ul>li:nth-child(5) {
+        background-color: rgb(248, 113, 136);
+        opacity: .5;
+        transform: translate3d(0, 100px, -100px) rotateX(90deg);
+    }
+
+    ul>li:nth-child(6) {
+        background-color: orange;
+        opacity: .5;
+        transform: translateZ(-200px);
+    }
+</style>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</body>
+<script>
+    const ul = document.querySelector('ul');
+
+    document.addEventListener('mousemove', (event) => {
+        // 获取鼠标位置相对于视口的坐标
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        // 计算旋转角度，范围从 -180 到 180
+        const rotateX = (mouseY / window.innerHeight - 0.5) * 180; // 将 Y 轴坐标转为旋转角度
+        const rotateY = (mouseX / window.innerWidth - 0.5) * 180; // 将 X 轴坐标转为旋转角度
+
+        // 应用旋转变换
+        ul.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+</script>
+
+</html>

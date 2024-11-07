@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box"></div>
+    </body>
+    <script>
+        var box = document.querySelector(".box");
+
+        // touchstart
+        box.addEventListener("touchstart", function (e) {
+            // console.log('触摸开始',e);
+
+            var touches = e.changedTouches;
+
+            console.log(e.changedTouches);
+
+            console.log(e.touches);
+
+            for (let i = 0; i < touches.length; i++) {
+                console.log("开始第 " + i + " 个触摸 ...");
+                console.log("第 " + i + " 个触摸已开始。");
+            }
+        });
+
+        // 手指滑动事件
+        box.addEventListener("touchmove", function (e) {
+            e.preventDefault();
+            // console.log('移动',e);
+            // console.log(e.touches);
+
+            const touches = e.changedTouches;
+
+            for (let i = 0; i < touches.length; i++) {
+                // console.log(touches[i].pageX, touches[i].pageY);
+
+                // if(touches[i].pageX > touches[i+1].pageX)    {
+                //     console.log('向左滑动');
+
+                // }
+            }
+        });
+
+        box.addEventListener("touchend", function (e) {
+            console.log("触摸结束", e);
+
+            // var touches = e.changedTouches
+
+            // console.log( e.changedTouches);
+
+            // console.log(e.touches);
+
+            // for (let i = 0; i < touches.length; i++) {
+            //         console.log("开始第 " + i + " 个触摸 ...");
+            //         console.log("第 " + i + " 个触摸已开始。");
+            //     }
+        });
+    </script>
+</html>

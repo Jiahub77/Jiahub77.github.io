@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡动画无缝轮播图</title>
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<style>
+     @keyframes illustration {
+        0%{
+            transform: translate(-100px,-100px);
+        }
+        20%{
+            transform: translate(300px,300px);
+        }
+        100%{
+            transform: translate(300px,150px);
+        }
+     }
+    .swiper {
+        width: 1020px;
+        height: 570px;
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+        cursor: pointer;
+    }
+
+    ul {
+        padding: 0;
+        display: flex;
+        list-style: none;
+        margin: 0;
+    }
+
+
+    img {
+        width: 1020px;
+        height: 570px;
+        object-fit: cover;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: .625rem;
+        left: 40%;
+        display: flex;
+    }
+
+    .dots div {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        background-color: bisque;
+        margin: 0 .625rem;
+    }
+
+    .dot-active {
+        background-color: #ccc !important;
+    }
+
+    .prev {
+        position: absolute;
+        left: 0;
+        top: 45%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: white;
+        font-size: 24px;
+        color: #ccc;
+        line-height: 37px;
+
+    }
+
+    .next {
+        position: absolute;
+        top: 45%;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: white;
+        font-size: 24px;
+        color: #ccc;
+        line-height: 37px;
+    }
+
+    span{
+        display: none;
+        position: absolute;
+        /* left: -100px; */
+    }
+    .title{
+        display: block;
+        font-size: 40px;
+        color: white;
+        font-weight: bold;
+        animation: illustration 2s;
+    }
+</style>
+
+<body>
+    <div class="swiper">
+        <ul>
+            <li>
+                <span>CAT</span>
+                <img src="./image/cat.jpeg" alt=""></li>
+            <li>
+                <span>fruit</span>
+                <img src="./image/fruit.jpeg" alt=""></li>
+            <li>
+                <span>people</span>
+                <img src="./image/people.jpeg" alt=""></li>
+            <li>
+                <span>model</span>
+                <img src="./image/sofa.jpeg" alt=""></li>
+            <li>
+                <span>CAT</span>
+                <img src="./image/cat.jpeg" alt=""></li>
+        </ul>
+
+        <div class="dots">
+            <div class="dot-active"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="prev">⬅</div>
+        <div class="next">➡</div>
+    </div>
+
+    <script>
+        var lis = $('li')
+        var index = 0
+        var length = $('li').length
+        var timer // 定时器 
+
+        // 滚动
+        function scrollView() {
+            var offset = -index * 100 + '%'
+            $('ul').css('transition', 'all 1s')
+            $('ul').css('transform', `translateX(${offset})`)
+            if (index > length - 2) {
+                index = 0
+                setTimeout(function () {
+                    index = 0
+                    $('ul').css('transition', 'none')
+                    $('ul').css('transform', `translateX(0)`)
+                }, 800)
+            }
+            activeDot()
+            illustration()
+        }
+
+        // 轮播效果
+        function swiper() {
+            timer = setInterval(function () {
+                index = (index + 1) % length
+                scrollView()
+            }, 2500)
+        }
+        swiper()
+
+        // 上一个
+        $('.next').click(function () {
+            clearInterval(timer)
+            index++
+            scrollView()
+            swiper()
+        })
+        // 下一个
+        $('.prev').click(function () {
+            clearInterval(timer)
+            index--
+            var offset = -index * 100 + '%'
+            if (index == -1) {
+                index = 3
+                offset = -index * 100 + '%'
+                $('ul').css('transition', 'none')
+                $('ul').css('transform', `translateX(-400%)`)
+
+                setTimeout(function () {
+                    $('ul').css('transition', 'all 1s')
+                    $('ul').css('transform', `translateX(${offset})`)
+                }, 0)
+            } else {
+                $('ul').css('transform', `translateX(${offset})`)
+            }
+            activeDot()
+            illustration()
+            swiper()
+        })
+
+        // dot切换图片
+        $('.dots').on('mouseover', 'div', function () {
+            clearInterval(timer)
+            $('.dots div').removeClass('dot-active')
+            $(this).addClass('dot-active')
+            index = $(this).index()
+            scrollView()
+            swiper()
+        })
+
+        // 活动的 dot
+        function activeDot(){
+            $('.dots div').each((idx, dot) => {
+                if (index === idx) {
+                    $(dot).addClass('dot-active');
+                } else {
+                    $(dot).removeClass('dot-active');
+                }
+            })
+        }
+
+        function illustration(){
+            setTimeout(()=>{
+                $('li span').each((idx, title) => {
+                if (index === idx) {
+                    $(title).addClass('title');
+                } else {
+                    $(title).removeClass('title');
+                }
+            })
+            },700)
+        }
+        illustration()
+    </script>
+</body>
+
+</html>

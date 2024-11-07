@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        width: 200px;
+        height: 200px;
+    }
+</style>
+<body>
+    <label for="">请选择一张图片
+        <input type="file">
+        <!-- <input type="file" accept="image/*"> -->
+    </label>
+    <div>
+        <img src="" alt="">
+    </div>
+</body>
+<script>
+    var file = document.querySelector('input')
+    
+    var img = document.querySelector('img')
+
+    file.onchange = function () {
+        if (typeof FileReader == 'undefined') {
+            alert('文件不支持阅读')
+        } else {
+            if (/image\/\w+/.test(this.files[0].type)) {
+                var reader = new FileReader()
+                reader.onload = function (e) {
+                    console.log(e.target.result);
+                    img.src = e.target.result
+
+                }
+                reader.readAsDataURL(this.files[0])
+            } else {
+                alert("请确保上传的是图片")
+            }
+        }
+    }
+</script>
+
+</html>

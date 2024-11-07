@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>简易商品管理系统</title>
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.3/jquery.min.js"></script>
+    <style>
+        /* CSS样式 */
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #productForm {
+            width: 1100px;
+            padding: 8px;
+            margin: auto;
+            border-radius: 9px;
+        }
+
+        #productForm>input {
+            margin: 8px;
+        }
+
+        .search {
+            width: 600px;
+            padding: 8px;
+            text-align: center;
+            margin: auto;
+            padding: 20px;
+        }
+
+        #searchInput {
+            width: 200px;
+            text-align: center;
+        }
+
+        #productTable {
+            width: 1100px;
+            box-shadow: 0 0 3px 0px #333;
+            padding: 8px;
+            margin: auto;
+            border-radius: 9px;
+            text-align: center;
+        }
+     </style>
+</head>
+
+<body>
+    <h1>简易商品管理系统</h1>
+    <form id="productForm">
+        名称:<input type="text" id="name">
+        价格:<input type="text" id="price">
+        库存:<input type="text" id="stock">
+        图片:<input type="file" accept="image/*">
+        <button type="button" id="addButton">添加商品</button>
+    </form>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="输入商品名称搜索">
+        <button type="button" id="searchButton">搜索商品</button>
+    </div>
+
+    <table id="productTable">
+        <tr>
+            <th>名称</th>
+            <th>价格</th>
+            <th>库存</th>
+            <th>预览</th>
+            <th>操作</th>
+        </tr>
+
+
+        <!-- 商品信息行将被动态添加 -->
+    </table>
+    <div style="text-align: center;margin-top: 20px;">Total Stock: <span id="totalStock">0</span></div>
+    <script>
+        var products = []
+        function Product(proName, proPrice, proStock, proImg) {
+            this.proName = proName
+            this.proPrice = proPrice
+            this.proStock = proStock
+            this.proImg = proImg
+        }
+        function getTable(product) {
+            $('#productTable').html(`
+            <tr>
+                <th>名称</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>预览</th>
+                <th>操作</th>
+            </tr>`)
+            product.forEach(item => {
+                $('#productTable').html($('#productTable').html() + `
+                <tr>
+                    <td>${item.proName}</td>
+                    <td>${item.proPrice}</td>
+                    <td>${item.proStock}</td>
+                    <td><img src="${item.proImg}" alt=""></td>
+                    <td class="del">删除</td>
+                </tr>
+            `)
+            })
+            $('#totalStock').text(product.length)
+
+        }
+        // 使用 FileReader 来读取图片
+        function getImageBase64(file, callback) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                callback(e.target.result); // 返回 base64 数据
+            };
+            reader.readAsDataURL(file);
+        }
+        // 添加产品
+        $('#addButton').click(function () {
+            var proName = $('#name').val()
+            var proPrice = $('#price').val()
+            var proStock = $('#stock').val()
+            var proImg = $('[type=file]')[0].files[0]
+            getImageBase64(proImg, function (base64Image) {
+                products.push(new Product(proName, proPrice, proStock, base64Image));
+                getTable(products)
+                proName = $('#name').val('')
+                proPrice = $('#price').val('')
+                proStock = $('#stock').val('')
+                proImg = $('[type=file]').val('')
+                $('.productImg').hide()
+            })
+        })
+
+        // 搜索
+        $('#searchButton').click(function () {
+            var searchVal = $('#searchInput').val()
+            if (searchVal != '') {
+                var res = products.filter(item => {
+                    return item.proName == searchVal
+                })
+                getTable(res)
+            } else {
+                getTable(products)
+            }
+        })
+
+        $('#productTable').on('click', '.del', function () {
+            var searchVal = $('#searchInput').val()
+            products = products.filter((item, index) => {
+                return index != $(this).parent().index() - 1 && item.proName == searchVal
+            })
+            getTable(products)
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.flex{
+    display: flex;
+}
+.header{
+    width: 1920px;
+    height: 80px;
+    background-color: #3eab86;
+    color: #fff;
+}
+.header .container{
+    width: 1185px;
+    background-color: #3eab86;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container .logo{
+    line-height: 73px;
+}
+.header .container .logo span:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.header .navbar .nav{
+    width: 700px;
+    justify-content: space-between;
+}
+.header .navbar ul li{
+    padding: 8px;
+    border-radius: 7px;
+    position: relative;
+}
+.header .navbar ul li:nth-child(1){
+    background: #e0e0e07a;
+}
+
+.header .navbar ul li:hover{
+    background: orange;
+}
+.child{
+    display: none;
+    position: absolute;
+    padding: 12px;
+    line-height: 24px;
+    border-radius: 10px;
+    width: 214px;
+    top: 38px;
+    left: -54px;
+    background: orangered;
+}
+.child .li1{
+    position: relative;
+}
+.child .li1::before{
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 9px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: none;
+    border-bottom: 10px solid orangered;
+    position: absolute;
+    left: 87px;
+    top: -22px;
+}
+.header .navbar .nav li:hover .child{
+    display: block;
+}
+.fdj{
+    width: 20px;
+    height: 20px;
+    background: url(../images/fangdajing.png);
+    background-size: contain;
+    position: absolute;
+    right: 16%;
+}
+
+
+/* 轮播图 */
+.swiper{
+    width: 1185px;
+    height: 430px;
+    margin: auto;
+}
+.swiper>img{
+    width: 1185px;
+    height: auto;
+    display: block;
+}
+.swiper .box{
+    width: 400px;
+    justify-content: space-around;
+    margin: 8px auto;
+}
+.swiper .box .box1{
+    width: 100px;
+    border: 5px solid #ccc;
+}
+.swiper .activebox{
+    width: 100px;
+    border: 5px solid orange;
+}
+
+.services{
+    width: 1185px;
+    height: 100px;
+    background-color: #ddd;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+   color: #787878;
+}
+.services>div:nth-child(1){
+   padding: 0 14px;
+}
+.text1{
+   font-size: 18px;
+}
+.text2{
+   font-size: 14px;
+   color: #787878;
+}
+.services .btn{
+    background: orange;
+    padding: 10px;
+    height: 32px;
+    width: 110px;
+    color: #fff;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 32px;
+}
+.tips{
+    width: 1185px;
+    margin: 46px auto;
+    justify-content: space-between;
+}
+.tips .item{
+    width: 270px;
+    height: 306px;
+    background-color: #f7f7f7;
+    text-align: center;
+    position: relative;
+}
+.tips .item .icon{
+    margin-top: 20px;
+}
+.tips .item .text2{
+    line-height: 24px;
+    width: 190px;
+    text-align: justify;
+    margin: auto;
+}
+.tips .item .btn{
+    background: orange;
+    padding: 10px;
+    height: 28px;
+    width: 142px;
+    margin: auto;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 32px;
+    position: absolute;
+    bottom: -20px;
+    left: 57px;
+    color: #fff;
+}
+.versus{
+    width: 1920px;
+    height: 600px;
+    text-align: center;
+    padding-top: 20px;
+    position: relative;
+}
+.versus::before{
+    width: 1920px;
+    height:380px;
+    background-color: #ddd;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    content: "";
+}
+.versus .title{
+    font-size: 40px;
+    color: orangered;
+}
+.versus .banbox{
+    width: 1185px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 62px;
+}
+.versus .banner2{
+    width: 270px;
+    height: 180px;
+    position: relative;
+}
+.versus .banner3{
+    width: 540px;
+    height: 340px;
+    position: relative;
+}
+.versus .banner2>img{
+    width: 270px;
+    height: auto;
+    display: block;
+}
+.versus .banner3>img{
+    width: 540px;
+    height: auto;
+    display: block;
+}
+.versus .banner2>p{
+    color: #fff;
+    position: absolute;
+    top: 17%;
+    left: 23px;
+}
+.versus .banner3>p{
+    color: #fff;
+    position: absolute;
+    top: 32%;
+    left: 32%;
+}
+
+.choose{
+    width: 1185px;
+    margin: auto;
+    padding-top: 20px;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #909090;
+}
+.choose .item1{
+    width: 277px;
+    height: 240px;
+}
+.choose .item1 p{
+    position: relative;
+}
+.choose .item1 p::before{
+    width: 17px;
+    height: 18px;
+    background: url("../images/arrow_right3.png");
+    background-size: contain;
+    position: absolute;
+    left: -23px;
+    content: "";
+}
+.choose .item2{
+    width: 710px;
+    height: 240px;
+    line-height: 34px;
+}
+.choose .item2 span{
+    color: orangered;
+}
+.choose .item2>.flex{
+    justify-content: space-between;
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+}
+.choose .item2 .flex>div{
+
+    position: relative;
+}
+.name{
+    font-weight: bold;
+    /* margin: auto; */
+    font-size: 16px;
+}
+.choose .item2 .number{
+    position: absolute;
+    bottom: 40%;
+    left: 40%;
+}
+.choose .item3{
+    width: 330px;
+    height: 240px;
+}
+.choose .item3>.talk{
+    width: 256px;
+    margin: auto;
+    background: #3eab86;
+    color: #fff;
+    text-align: justify;
+    padding: 6px;
+    border-radius: 10px;
+    position: relative;
+}
+.choose .item3>.talk::after{
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 5px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: none;
+    border-top: 23px solid #3eab86;
+    position: absolute;
+    left: 13px;
+    bottom: -22px;
+
+}
+.choose .item3>.name{
+    padding: 4px 20px;
+}
+
+.jquery{
+    width: 1185px;
+    margin: auto;
+    padding-top: 20px;
+    font-size: 13px;
+    color: #909090;
+}
+.jquery .top{
+    justify-content: space-between;
+    align-items: center;
+}
+.jquery .top .line{
+    width: 800px;
+    height: 0;
+    border: 1px solid #ddd;
+}
+.jquery .top .btnbox>img{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+.jquery .imgbox{
+    width: 1185px;
+    justify-content: space-between;
+    align-items: center;
+}
+.jquery .imgbox>div{
+    padding: 24px 43px;
+    background-color: #ddd;
+    border-radius: 10px;
+}

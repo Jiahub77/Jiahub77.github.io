@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot</title>
+</head>
+<style>
+    canvas {
+        background-image:
+            /* linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0 / 22%)), */
+            url('./image/background.jpg');
+        background-size: cover;
+    }
+
+    .score {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <canvas width="600px" height="280px"></canvas>
+    <div class="score">分数：<h3>0</h3>
+    </div>
+    <script>
+        const canvas = document.querySelector("canvas")
+        const h3 = document.querySelector(".score h3")
+        const context = canvas.getContext("2d")
+
+        // 初始化方块的数量
+        let blocks = 10
+        let score = 0
+
+        // 生成随机数
+        function random(m, n) {
+            return Math.floor(Math.random() * (n - m) + m)
+        }
+
+        // 初始化方块
+        // 存储方块的位置
+        let blocksPositions = [];
+        let x = 10
+        let y = 10
+        function block() {
+            for (var i = 0; i < Math.floor(canvas.width / 40); i++) {
+                for (var j = 0; j < 6; j++) {
+                    blocksPositions.push({ x, y });
+                    context.beginPath();
+                    context.fillStyle = "white"
+                    context.fillRect(x, y, 30, 5);
+                    context.closePath();
+                    y += 15
+                }
+                x += 40
+                y = 10
+            }
+        }
+        block()
+
+        // 定义重新绘制方块的函数
+        function drawBlocks() {
+            blocksPositions.forEach(block => {
+                context.beginPath();
+                context.fillStyle = "white";
+                context.fillRect(block.x, block.y, 30, 5);
+                context.closePath();
+            });
+        }
+
+        // 滑块
+        const slider = {
+            width: 200,
+            height: 10,
+            // x: canvas.width / 2 - 50,
+            x: canvas.width / 2 - 50,
+            y: canvas.height - 10,
+            speed: 70
+        };
+
+        function drawSlider() {
+            context.beginPath();
+            context.fillRect(slider.x, slider.y, slider.width, slider.height);
+            context.closePath();
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft" && slider.x > 0) {
+                slider.x -= slider.speed;
+            } else if (e.key === "ArrowRight" && slider.x + slider.width < canvas.width) {
+                slider.x += slider.speed;
+            }
+        });
+
+        class Dot {
+            constructor(x, y, r, speedX, speedY) {
+                this.x = x
+                this.y = y
+                this.r = r
+                this.speedX = speedX
+                this.speedY = speedY
+            }
+            draw() {
+                context.beginPath();
+                context.fillStyle = this.color || "yellowgreen";
+                context.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                context.fill();
+                context.closePath();
+            }
+
+            move() {
+                // 先记录圆的当前中心位置
+                const prevX = this.x;
+                const prevY = this.y;
+
+                // 更新圆的位置
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                // 检查是否碰到边界并反弹
+                if (this.x >= canvas.width - this.r || this.x <= this.r) {
+                    this.speedX = -this.speedX;
+                }
+                if (this.y <= this.r) {
+                    this.speedY = -this.speedY;
+                }
+                if (this.y > canvas.height + this.r) {
+                    clearInterval(timer)
+                    setTimeout(() => {
+                        context.font = 'italic 700 200px 宋体'
+                        context.fillText("Lost", 120, 200, 300)
+                    }, 300)
+                }
+
+                // 检查是否碰到滑块
+                if (this.y + this.r >= slider.y &&
+                    this.x >= slider.x &&
+                    this.x <= slider.x + slider.width) {
+                    this.speedY = -this.speedY;
+                    this.y = slider.y - this.r; // 将小球调整到滑块的顶部
+                }
+
+                // 检查是否碰到方块
+                blocksPositions.forEach((block, index) => {
+                    // 检查X轴碰撞
+                    if (this.x + this.r >= block.x && this.x - this.r <= block.x + 30) {
+                        // 检查Y轴碰撞
+                        if (this.y + this.r >= block.y && this.y - this.r <= block.y + 5) {
+                            // 反转方向
+                            if (Math.abs(this.x - (block.x + 30)) < Math.abs(this.x - block.x)) {
+                                this.speedX = -this.speedX; // 反转X轴速度
+                            } else {
+                                this.speedY = -this.speedY; // 反转Y轴速度
+                            }
+                            context.clearRect(block.x, block.y, 30, 5);
+                            score += 1
+                            h3.innerText = score
+                            blocksPositions.splice(index, 1)
+                            if (blocksPositions.length === 0) {
+                                clearInterval(timer)
+                                setTimeout(() => {
+                                    context.font = 'italic 700 200px 宋体'
+                                    context.fillText("Victor", 120, 200, 300)
+                                }, 300)
+                            }
+                        }
+                    }
+                })
+
+                // 清除上次绘制的圆形
+                context.clearRect(prevX - this.r, prevY - this.r, 2 * this.r, 2 * this.r);
+
+                // 绘制新的圆形
+                this.draw();
+            }
+        }
+
+        class ColorDot extends Dot {
+            constructor(x, y, r, speedX, speedY, color) {
+                super(x, y, r, speedX, speedY)
+                this.color = color
+            }
+        }
+
+        var dots = []
+
+
+        // dots.push(new ColorDot(random(200, 290), random(100, 200), 8, random(2, 5), random(2, 5), `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`))
+        dots.push(new ColorDot(random(200, 290), random(100, 200), 8, random(2, 5), random(2, 5), `rgb(255,255,255)`))
+
+        var timer = setInterval(() => {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            drawBlocks()
+            drawSlider()
+            dots.forEach(dot => {
+                dot.move()
+            })
+        }, 16.6)
+    </script>
+</body>
+
+</html>

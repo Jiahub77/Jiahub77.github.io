@@ -1,0 +1,492 @@
+@keyframes jump {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#up {
+    background-color: #f8f9fa;
+}
+
+nav {
+    height: 80px;
+}
+
+.swiper {
+    background-image: url("../image/home-bg.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 64px 0px 125px;
+}
+
+/* 面包屑 */
+.banner {
+    background: url("../image/zumla-portfolio-d-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding: 200px 0 115px;
+    text-align: center;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    margin: auto;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.hero-section {
+    position: relative;
+}
+
+.light {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    animation: jump 5s linear infinite;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    padding-top: 100px;
+}
+
+.font-h1 {
+    font-size: 130px;
+    color: rgb(1, 0, 43);
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.font-h5 {
+    font-size: 18px;
+    color: rgb(1, 0, 43);
+    font-family: 'DM Sans', sans-serif;
+}
+
+.text {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    padding: 15px 0 100px;
+}
+
+.sub-single-box {
+    border: 2px solid #ddd;
+    transition: .5s;
+    margin-bottom: 30px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sub-single-box:hover {
+    border: 2px solid orange;
+}
+
+.brand-area {
+    background: url("../image/zumla-ser-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0 50px;
+    text-align: center;
+}
+
+.brand-thumb img {
+    height: 100%;
+    padding: 30px 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.pt {
+    padding-top: 100px;
+}
+.pb {
+    padding-bottom: 100px;
+}
+
+.brand-area h1 {
+    font-weight: 700;
+    text-align: left;
+    color: #fff;
+    padding: 18px 0;
+    font-family: 'DM Sans', sans-serif;
+    padding-top: 110px;
+}
+
+.brand-area p {
+    font-size: 16px;
+    line-height: 1.625;
+    text-align: justify;
+    font-family: 'Roboto', sans-serif;
+    color: #afafaf;
+    padding-top: 80px;
+}
+
+.contact-btn {
+    width: 180px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    color: #fff;
+    background-color: #ff830e;
+    padding: 14px 34px;
+    border-radius: 5px;
+    margin-top: 20px;
+    z-index: 2;
+    transition: .5s;
+    /* border: 1px solid #ff830e; */
+    position: relative;
+}
+
+.contact-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: 1px solid #000;
+    transform: scale(0);
+    transition: .5s;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.contact-btn:hover::before {
+    transform: scale(1);
+}
+
+.latest {
+    background-color: #f5f5f52b;
+}
+
+.latest h5 {
+    font-size: 22px;
+    padding: 15px 20px;
+    transition: .3s;
+}
+
+.latest h5:hover {
+    color: #ff830e;
+}
+
+.shadow-item {
+    box-shadow: 0 0 20px 2px #e6e6e6;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: .5s;
+}
+
+.shadow-item:hover {
+    transform: translateY(-20px);
+}
+
+.shadow-item .bg-box {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.shadow-item .bg-box img {
+    width: 100%;
+}
+
+.services {
+    background: url("../image/zumla-ser-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0 50px;
+    text-align: center;
+}
+
+.clients {
+    background-color: #272727;
+    color: #fff;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.clients::before {
+    content: "Service";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ff830e;
+    transform: translateY(100%);
+    transition: .5s;
+    border-radius: 20px;
+    font-size: 40px;
+}
+
+.clients:hover:before {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.clients .bg-box {
+    padding: 28px;
+}
+
+.clients .bg-box img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.clients h5 {
+    font-size: 28px;
+    padding: 20px 16px 25px;
+}
+
+.clients p {
+    padding: 0 12px 30px;
+}
+
+.clients h1 {
+    position: absolute;
+    top: 26px;
+    right: 42px;
+    color: rgba(255, 118, 3, 0.129);
+    z-index: 99;
+}
+
+.testimonial-section {
+    background-image: url(../image/zumla-testi-bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0 88px;
+    position: relative;
+
+}
+
+.testimonial-section .testi-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-section p {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 25px 0 2px;
+    color: rgb(97, 97, 97);
+    font-style: italic;
+    line-height: 1.364;
+    text-align: justify;
+}
+
+.testimonial-section .footer-icon {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    animation: jump 5s linear infinite;
+}
+
+.skills {
+    background: url("../image/zumla-ser-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 40px 0 50px;
+    text-align: center;
+}
+
+.skills img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skills .prossess-ber-plugin {
+    margin: 20px 0;
+}
+
+.about-btn {
+    width: 180px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    color: #fff;
+    background-color: #ff830e;
+    padding: 14px 34px;
+    border-radius: 5px;
+    margin-top: 70px;
+    z-index: 2;
+    transition: .5s;
+    /* border: 1px solid #ff830e; */
+    position: relative;
+}
+
+.about-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: 1px solid #000;
+    transform: scale(0);
+    transition: .5s;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.about-btn:hover::before {
+    transform: scale(1);
+}
+
+.up-btn {
+    position: fixed;
+    bottom: 6%;
+    right: 4%;
+    color: #ff830e;
+}
+
+.up-btn a {
+    color: #ff830e;
+}
+
+.blog .item {
+    border-radius: 10px;
+    background-color: #fff;
+    transition: .5s;
+}
+
+.blog .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.blog .item:hover {
+    box-shadow: 0 0 20px 3px #cfcfcf;;
+}
+
+.footer-section {
+    position: relative;
+}
+
+.footer-section .footer-icon {
+    position: absolute;
+    right: 12%;
+    bottom: 12%;
+    animation: jump 5s linear infinite;
+}
+
+.footer-section p {
+    text-align: center;
+    color: #969696;
+    font-size: 22px;
+}
+
+.footer-section h5 {
+    text-align: center;
+    font-weight: bold;
+}
+
+ul {
+    text-align: center;
+    color: #fff;
+    display: flex;
+    padding: 16px;
+    justify-content: space-around;
+}
+
+.message-form{
+    box-shadow: 0 0 20px 2px #e6e6e6;
+    padding: 70px;
+    border-radius: 20px;
+}
+
+.contact-form{
+    width: 100%;
+    height: 40px;
+    margin: 20px 0;
+}
+
+textarea{
+    width: 100%;
+    height: 80px;
+    margin-top: 20px;
+}
+
+
+@media (max-width:1200px) {
+    .font-h1 {
+        font-size: 100px;
+    }
+
+    .pt {
+        padding: 40px;
+    }   
+
+    .text {
+        padding: 15px 0;
+    }
+
+    .sub-single-box {
+        padding: 10px 7px;
+    }
+
+    .brand-area h1 {
+        font-size: 34px;
+        padding-top: 0px;
+    }
+
+    .brand-area p {
+        padding: 10px;
+    }
+
+    .brand-area img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        padding: 20px;
+    }
+
+    .clients {
+        margin: 20px 0;
+    }
+
+    .message-form{
+        padding: 40px;
+    }
+}

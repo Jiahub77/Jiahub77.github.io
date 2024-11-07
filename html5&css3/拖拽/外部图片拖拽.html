@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .drag {
+        width: 1000px;
+        height: 400px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .target {
+        width: 300px;
+        height: 300px;
+        margin-top: 30px;
+        border: 1px solid #000;
+        font-size: 30px;
+        text-align: center;
+        line-height: 300px;
+        color: #ccc;
+    }
+
+    .view {
+        width: 620px;
+        height: 400px;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .view img {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+    }
+
+    input {
+        display: none;
+    }
+
+    #custom-menu {
+        display: none;
+        position: absolute;
+        width: 100px;
+        height: 20px;
+        color: #fff;
+        background-color: #000;
+        border-radius: 10px;
+        padding: 10px;
+        z-index: 1000;
+        line-height: 20px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="drag">
+        <div class="target" draggable="true">拖拽图片到
+            <input type="file" accept="image/*" multiple>
+        </div>
+        <div class="view"></div>
+    </div>
+    <div id="custom-menu">
+        <p>删除</p>
+    </div>
+</body>
+<script>
+    var target = document.querySelector('.target')
+    var view = document.querySelector('.view')
+    var input = document.querySelector('input')
+    var menu = document.getElementById('custom-menu');
+
+    menu.addEventListener('click', function () {
+        menu.style.display = 'none';
+    })
+
+    // 上传多个图片文件
+    target.addEventListener('click', function (e) {
+        input.click()
+    })
+    input.addEventListener('change', function (e) {
+        var files = input.files
+        getImage(files)
+    })
+    // 右键删除上传文件
+    view.addEventListener('contextmenu', function (e) {
+        e.preventDefault()
+        // 设置自定义菜单的位置并显示
+        menu.style.top = `${event.clientY}px`;
+        menu.style.left = `${event.clientX}px`;
+        menu.style.display = 'block';
+        console.log(e.target);
+        var imgs = document.querySelectorAll('img')
+        imgs = Array.prototype.slice.call(imgs)
+        // 过滤掉右键点击的元素
+        // imgs = imgs.filter(function (img) {
+        //     return img !== e.target;
+        // });
+
+        // // 打印出过滤后的 <img> 元素数组，用于调试
+        // console.log('Filtered images:', imgs);
+
+
+    })
+
+    // 阻止默认事件
+    target.addEventListener('dragover', function (e) {
+        e.preventDefault()
+    })
+    target.addEventListener('drop', function (e) {
+        e.preventDefault()
+        console.log(e.dataTransfer.files);
+        // 获取拖拽文件
+        var files = e.dataTransfer.files
+        getImage(files)
+    })
+
+    function getImage(files) {
+        files = Array.from(files)
+
+        // 创建读取文件 对象
+        files.forEach(file => {
+            var reader = new FileReader()
+            reader.onload = function (e) {
+                var img = document.createElement('img')
+                img.src = e.target.result
+                img.draggable = "true"
+                view.appendChild(img)
+            }
+            reader.readAsDataURL(file)
+        });
+    }
+</script>
+
+</html>

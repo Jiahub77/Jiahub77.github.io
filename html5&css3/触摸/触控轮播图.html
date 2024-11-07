@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡动画无缝轮播图</title>
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.3/jquery.min.js"></script>
+</head>
+<style>
+    /* *{
+        margin: 0;
+        padding: 0;
+    } */
+    @keyframes illustration {
+        0% {
+            transform: translate(-100px, -100px);
+        }
+
+        20% {
+            transform: translate(200px, 200px);
+        }
+
+        100% {
+            transform: translate(200px, 150px);
+        }
+    }
+
+    .swiper {
+        width: 1020px;
+        height: 570px;
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+        cursor: pointer;
+    }
+
+    ul {
+        padding: 0;
+        display: flex;
+        list-style: none;
+        margin: 0;
+    }
+
+
+    img {
+        width: 1020px;
+        height: 570px;
+        object-fit: cover;
+    }
+
+    .dots {
+        position: absolute;
+        bottom: .625rem;
+        left: 40%;
+        display: flex;
+    }
+
+    .dots div {
+        width: 30px;
+        height: 4px;
+        background-color: #cccccc6b;
+        margin: 1rem 0;
+        transition: all .4s;
+        margin: 14px;
+        border-radius: 20px;
+    }
+
+    .dot-active {
+        width: 80px !important;
+        height: 4px;
+        background-color: #e6e6e6 !important;
+    }
+
+    .prev {
+        position: absolute;
+        left: 0;
+        top: 45%;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: white;
+        font-size: 24px;
+        color: #ccc;
+        line-height: 37px;
+
+    }
+
+    .next {
+        position: absolute;
+        top: 45%;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: white;
+        font-size: 24px;
+        color: #ccc;
+        line-height: 37px;
+    }
+
+    span {
+        display: none;
+        position: absolute;
+        /* left: -100px; */
+    }
+
+    .title {
+        display: block;
+        font-size: 30px;
+        color: white;
+        font-weight: bold;
+        animation: illustration 2s;
+    }
+
+    @media (max-width:760px) {
+        .swiper {
+            width: 100%;
+            height: 300px;
+        }
+
+        ul {
+            width: 100%;
+            height: 100%;
+        }
+
+        li {
+            width: 100%;
+            height: 100%;
+        }
+
+        li img {
+            width: 443px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .prev {
+            display: none;
+        }
+
+        .next {
+            display: none;
+        }
+
+        .dots {
+            left: 26%;
+        }
+
+        li .title {
+            display: none;
+        }
+
+        .dots div {
+            width: 20px;
+            height: 4px;
+            background-color: #cccccc6b;
+            margin: 1rem 0;
+            transition: all .4s;
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        .dot-active {
+            width: 40px !important;
+            height: 4px;
+            background-color: #e6e6e6 !important;
+        }
+    }
+</style>
+
+<body>
+    <div class="swiper">
+        <ul>
+            <li>
+                <span>CAT</span>
+                <img src="../image/cat.jpeg" alt="">
+            </li>
+            <li>
+                <span>fruit</span>
+                <img src="../image/fruit.jpeg" alt="">
+            </li>
+            <li>
+                <span>people</span>
+                <img src="../image/people.jpeg" alt="">
+            </li>
+            <li>
+                <span>model</span>
+                <img src="../image/sofa.jpeg" alt="">
+            </li>
+            <li>
+                <span>CAT</span>
+                <img src="../image/cat.jpeg" alt="">
+            </li>
+        </ul>
+
+        <div class="dots">
+            <div class="dot-active"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="prev">⬅</div>
+        <div class="next">➡</div>
+    </div>
+
+    <script>
+        var lis = $('li')
+        var index = 0
+        var length = $('li').length
+        var timer // 定时器 
+        var offset = 0
+        // 触摸位置，移动距离
+        var pageX, startX, moveX
+        var ul = document.querySelector('ul')
+        ulwidth = ul.clientWidth
+
+        // 滚动
+        function scrollView() {
+            offset = -index * 100
+            $('ul').css('transition', 'all 1s')
+            $('ul').css('transform', `translateX(${offset}%)`)
+            if (index > length - 2) {
+                index = 0
+                setTimeout(function () {
+                    index = 0
+                    offset = 0;
+                    $('ul').css('transition', 'none')
+                    $('ul').css('transform', `translateX(${offset}%)`)
+                }, 800)
+            }
+            if (index == -1) {
+                index = 3
+                offset = -index * 100
+                $('ul').css('transition', 'none')
+                $('ul').css('transform', `translateX(-400%)`)
+
+                setTimeout(function () {
+                    $('ul').css('transition', 'all 1s')
+                    $('ul').css('transform', `translateX(${offset}%)`)
+                }, 0)
+            } else {
+                $('ul').css('transition', 'all 1s')
+                $('ul').css('transform', `translateX(${offset}%)`)
+            }
+            activeDot()
+            illustration()
+        }
+
+        // 轮播效果
+        function swiper() {
+            timer = setInterval(function () {
+                index = (index + 1) % length
+                scrollView()
+            }, 2500)
+        }
+        swiper()
+
+        // 移动端触摸事件
+        // 触摸开始
+        ul.addEventListener('touchstart', (e) => {
+            // 清除默认事件和定时器
+            e.preventDefault();
+            clearInterval(timer)
+            // 获取触摸时的位置
+            pageX = e.touches[0].pageX
+            startX = pageX
+        });
+        // 触摸中
+        ul.addEventListener('touchmove', (e) => {
+            // 清除默认事件和定时器
+            e.preventDefault();
+            // 获取触摸时的位置
+            moveX = (e.touches[0].pageX - startX) / ulwidth * 100
+
+            // 检测是否在克隆的第一张或最后一张，处理无缝过渡
+            if (index === 0 && moveX > 0) {  // 向右滑动第一张
+                $('ul').css('transition', 'none');
+                $('ul').css('transform', `translateX(${offset + moveX - (length-1) * 100}%)`);
+            }else {
+                $('ul').css('transition', 'none');
+                $('ul').css('transform', `translateX(${offset + moveX}%)`);
+            }
+        });
+        // 触摸结束
+        ul.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            var pageEndX = e.changedTouches[0].pageX
+            if (pageEndX - pageX >= 120) {
+                // 左滑
+                index--
+                scrollView()
+            } else if (pageX - pageEndX >= 120) {
+                // 右滑
+                index++
+                scrollView()
+            } else {
+                // $('ul').css('transition', 'all .5s')
+                $('ul').css('transform', `translateX(${offset}%)`);
+            }
+            swiper()
+        });
+
+        // 下一个
+        $('.next').click(function () {
+            clearInterval(timer)
+            index++
+            scrollView()
+            swiper()
+        })
+        // 上一个
+        $('.prev').click(function () {
+            clearInterval(timer)
+            index--
+            scrollView()
+            swiper()
+        })
+
+        // dot切换图片
+        $('.dots').on('mouseover', 'div', function () {
+            clearInterval(timer)
+            $('.dots div').removeClass('dot-active')
+            $(this).addClass('dot-active')
+            index = $(this).index()
+            scrollView()
+            swiper()
+        })
+
+        // 活动的 dot
+        function activeDot() {
+            $('.dots div').each((idx, dot) => {
+                $(dot).toggleClass('dot-active', index === idx);
+            })
+        }
+
+        function illustration() {
+            setTimeout(() => {
+                $('li span').each((idx, title) => {
+                    $(title).toggleClass('title', index === idx);
+                })
+            }, 700)
+        }
+        illustration()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/2.1.3/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #listNav {
+            width: 32px;
+            position: fixed;
+            top: 150px;
+            left: 50px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+
+        #listNav ul li {
+            width: 32px;
+            height: 32px;
+            border-bottom: 1px dotted #DDDDDD;
+            list-style: none;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+            line-height: 32px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        #listNav ul li span {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #listNav ul li span {
+            display: none;
+        }
+
+        #listNav ul li.last {
+            background: #C00;
+            color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #listNav ul li.hover span {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+
+        #listNav ul li.hover span.active {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+
+        #listNav ul li span.active {
+            background: #fff;
+            color: #c00;
+            display: block;
+        }
+
+        #header {
+            width: 600px;
+            height: 700px;
+            background: #cc6633;
+            margin: 0 auto;
+            font-size: 50px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #main {
+            width: 600px;
+            background: #66ff66;
+            margin: 0 auto;
+        }
+
+        #main .list {
+
+            height: 600px;
+            width: 600px;
+            font-size: 50px;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 600px;
+        }
+
+        #footer {
+            width: 600px;
+            height: 400px;
+            background: red;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="listNav">
+        <ul>
+            <li class="hover">1F <span>服饰</span> </li>
+            <li>2F <span>美妆</span> </li>
+            <li>3F <span>手机</span> </li>
+            <li>4F <span>家电</span> </li>
+            <li>5F <span>数码</span> </li>
+            <li>6F <span>运动</span> </li>
+            <li>7F <span>居家</span> </li>
+            <li>8F <span>母婴</span> </li>
+            <li>9F <span>食品</span> </li>
+            <li>10F <span>图书</span> </li>
+            <li>11F <span>服务</span> </li>
+            <li class="last">Top</li>
+        </ul>
+    </div>
+
+    <!--楼层内容开始-->
+
+    <div id="header">
+        推荐
+    </div>
+    <div id="main">
+        <div class="list" style="background: #cc0033;">
+            服饰
+        </div>
+        <div class="list" style="background: #999933;">
+            美妆
+        </div>
+        <div class="list" style="background: #ccff33;">
+            手机
+        </div>
+        <div class="list" style="background: #006633;">
+            家电
+        </div>
+        <div class="list" style="background: #6666cc;">
+            数码
+        </div>
+        <div class="list" style="background: #ff6600;">
+            运动
+        </div>
+        <div class="list" style="background: #ffff00;">
+            居家
+        </div>
+        <div class="list" style="background: #3333ff;">
+            母婴
+        </div>
+        <div class="list" style="background: #ff00cc;">
+            食品
+        </div>
+        <div class="list" style="background: #669900;">
+            图书
+        </div>
+        <div class="list" style="background: #ff66cc;">
+            服务
+        </div>
+
+    </div>
+    <div id="footer">
+
+    </div>
+
+
+</body>
+<script>
+    $(window).scroll(function () {
+        var $scrollTop = $(window).scrollTop();
+
+        if ($scrollTop >= $('.list').eq(0).offset().top) {
+            $('#listNav').fadeIn(1000)
+            // var index = Math.floor($scrollTop / 600) - 1
+            // $('ul li').removeClass('hover');
+            // $('ul li').eq(index).addClass('hover');  // 高亮当前楼层
+            // $('ul li').eq(index).find('span').show();  // 显示当前楼层的 span
+
+            $('.list').each(function (index, ele) {
+                // $(ele).offset().top  距离顶部高度
+                // $(ele).outerHeight() 元素高度
+                if ($scrollTop >= $(ele).offset().top && $scrollTop <= $(ele).offset().top + $(ele).outerHeight()) {
+                    $('ul li').removeClass('hover');
+                    $('ul li').eq(index).addClass('hover');
+                    // $('ul li').eq(index).find('span').show();
+                }
+            })
+        } else if ($scrollTop < $('.list').eq(0).offset().top) {
+            $('#listNav').fadeOut(1000)
+        }
+    })
+    // $('.last').click(function () {
+    //     $(window).scrollTop(0)
+    // })
+
+    $('#listNav li').click(function () {
+        if ($(this).hasClass("last")) {
+            $('html, body').animate({
+            scrollTop: 0
+        }, 500);
+            return
+        }
+        
+        // 当前点击的li是第几个
+        var index = $(this).index()
+        // 滚动动画需要作用在有滚动条的元素上
+        $('html, body').animate({
+            scrollTop: $('.list').eq(index).offset().top
+        }, 500);
+        
+    })
+
+</script>
+
+</html>

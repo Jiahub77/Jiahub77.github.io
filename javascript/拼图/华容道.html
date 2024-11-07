@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    .game {
+        width: 400px;
+        height: 400px;
+        background-color: antiquewhite;
+        margin: 40px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .item {
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        background-color: aliceblue;
+        position: absolute;
+        transition: all 1s;
+    }
+
+    .menu {
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+        position: absolute;
+        top: 15%;
+        left: 10%;
+    }
+
+    .menu p {
+        color: #000;
+        text-align: center;
+    }
+
+    .menu select {
+        width: 200px;
+        height: 30px;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>华容道</h1>
+    <div class="game"></div>
+    <div class="menu">
+        <p>难度</p>
+        <select name="" id="">
+            <option value="3" selected>简单</option>
+            <option value="4">中等</option>
+            <option value="5">困难</option>
+        </select>
+    </div>
+    <script>
+        var game = document.querySelector(".game")
+        var diff = document.querySelector("select")
+
+        // 获取难度
+        var level = diff.value
+        // 空白格的行和列
+        var zeroRow = level - 1
+        var zeroCol = level - 1
+        var size = Math.floor(game.offsetWidth / level)
+        diff.onchange = function () {
+            level = diff.value
+            size = Math.floor(game.offsetWidth / level)
+            zeroRow = level - 1
+            zeroCol = level - 1
+            init()
+        }
+        init()
+
+        // 初始化拼图 li
+        var items
+        function init() {
+            // 游戏开始前删除所有的 li
+            game.innerHTML = ""
+            // 根据难度创建拼图块 li
+            for (var i = 0; i < (level * level) - 1; i++) {
+                var item = document.createElement("div")
+                item.classList.add("item")
+                item.style.width = game.offsetWidth / level + "px"
+                item.style.height = game.offsetHeight / level + "px"
+
+                item.innerText = i
+                game.appendChild(item)
+            }
+            items = document.querySelectorAll(".item")
+
+            //定义一个数组,为 li 的data-now排序
+            var sortArr = []
+            for (var i = 0; i < items.length; i++) {
+                sortArr.push(i)
+            }
+            // 乱序排序
+            sortArr.sort(() => Math.random() - 0.5)
+
+            // 相邻元素等于 item.dataset.old = 15 可以交换位置
+            items.forEach((item, index) => {
+                // 自定义属性 old:原始位置 new:更新后的位置
+                item.dataset.old = index
+                item.dataset.new = sortArr[index]
+
+                // 根据new修改排列顺序
+                item.style.top = Math.floor(item.dataset.new / level) * size + "px"
+                item.style.left = (item.dataset.new % level) * size + "px"
+            });
+        }
+
+
+
+        // 选中元素的行和列
+        var row, col
+        console.log("行", zeroRow, "列", zeroCol);
+
+        // 事件委托给game添加点击事件
+        game.addEventListener("click", (event) => {
+            // 如果点击的方块不为空白格
+            if (event.target.dataset.old != (level * level) - 1) {
+
+                // 获取方块的行列坐标
+                row = Math.floor(event.target.dataset.new / level)
+                col = event.target.dataset.new % level
+                console.log(row, col);
+                // 判断相邻的格子是否为空白格
+                if ((Math.abs(row - zeroRow) == 1 && col == zeroCol) ||
+                    (Math.abs(col - zeroCol) == 1 && row == zeroRow)) {
+                    // 交换格子与空白格的位置
+                    event.target.style.top = zeroRow * size + "px"
+                    event.target.style.left = zeroCol * size + "px"
+
+                    // 更新格子的 new
+                    event.target.dataset.new = zeroRow * level + zeroCol
+                    // 更新空白格的行列
+                    zeroRow = row
+                    zeroCol = col
+                    // console.log(event.target.style.top, zeroRow, event.target.style.left, zeroCol);
+                }
+            }
+            var isWin = Array.prototype.slice.call(items).every((item) => {
+                return item.dataset.old == item.dataset.new
+            })
+            setTimeout(() => {
+                if (isWin) alert("You Win");
+            }, 1000)
+        })
+
+    </script>
+</body>
+
+</html>

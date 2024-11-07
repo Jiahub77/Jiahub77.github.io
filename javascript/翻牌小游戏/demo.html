@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>翻牌小游戏</title>
+    <style>
+        /* 初始化样式 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 初始化样式结束 */
+        .box {
+            width: 600px;
+            /* background: pink; */
+            margin: 0 auto;
+        }
+
+        .box .title {
+            text-align: center;
+            /* 字体大小 */
+            font-size: 40px;
+            /* 上内填空 */
+            padding-top: 22px;
+            /* 下内填空 */
+            padding-bottom: 15px;
+        }
+
+        .box .game {
+            width: 600px;
+            height: 600px;
+        }
+
+        .box .game .item {
+            width: 146px;
+            height: 146px;
+            background: #f0f0f0;
+            /* 边框 */
+            border: 2px solid #dddddd;
+            /* 左浮动 */
+            float: left;
+            /* 鼠标模拟小手 */
+            cursor: pointer;
+        }
+
+        .box .game .item:hover {
+            background: #2b84e0;
+
+        }
+
+        .box .game .item .pic {
+            background: url(./images/1.png);
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 90% auto;
+            /* 2d缩放 */
+            transform: scale(0, 1);
+            /* 过渡 */
+            transition: all .3s;
+        }
+
+        /* 当item类名有on时 */
+        .box .game .item.on .pic {
+            transform: scale(1);
+        }
+
+        .box .game .item.done {
+            background-color: rgb(156, 156, 156);
+        }
+
+        .game-rules {
+            width: 160px;
+            /* 绝对定位 */
+            position: absolute;
+            left: 30px;
+            bottom: 52px;
+        }
+
+        /* 新游戏层样式 */
+        .new-game {
+            width: 160px;
+            position: absolute;
+            right: 30px;
+            bottom: 50px;
+            /* 设置行高 */
+            line-height: 34px;
+        }
+
+        .new-game .step {
+            color: red;
+        }
+
+        .new-game .game-progress {
+            color: red;
+        }
+
+        .new-game .level {
+            width: 158px;
+            height: 28px;
+            /* 边框线 */
+            border: 1px solid #cccccc;
+            /* 去掉轮廓线 */
+            outline: none;
+            /* 设置背景图片 */
+            background-image: url(./images/arrow_down.png);
+            /* 不平铺 */
+            background-repeat: no-repeat;
+            /* 去掉默认下拉框向下小箭头 */
+            appearance: none;
+            /* 图片背景定位 */
+            background-position: right center;
+            /* padding-left: 10px; */
+        }
+
+        .new-game .new-game-btn {
+            width: 160px;
+            height: 36px;
+            background-color: #2b84d0;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            /* 上外边距 */
+            margin-top: 10px;
+            /* 鼠标模拟小手 */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 大盒子 -->
+    <div class="box">
+        <!-- 标题 -->
+        <h3 class="title">js记忆翻牌小游戏</h3>
+        <!-- 游戏区域 -->
+        <!--  -->
+        <div class="game">
+        </div>
+    </div>
+    <!-- 游戏规则层 -->
+    <p class="game-rules"> 游戏规则：翻开两个格子，如果图案一致则配对，将其挑出，如果图案不一致则盖回去，直到所有格子都配对完成，游戏结束。 </p>
+    <!-- 新游戏层 -->
+    <div class="new-game">
+        <p>你已经进行了<span class="step">0</span>步</p>
+        <p>游戏进度：<span class="game-progress">0/8</span></p>
+        <!-- 下拉框 -->
+        <select class="level">
+            <option disabled>--选择难度--</option>
+            <option value="1">难度1：2 x 2</option>
+            <!-- 给option添加一个selected,表示默认选中项 -->
+            <option value="2">难度2：4 x 4</option>
+            <option value="3">难度3：6 x 6</option>
+        </select>
+        <div class="new-game-btn">新游戏</div>
+    </div>
+    <script>
+        //获取game对象
+        var gameDom = document.querySelector(".game");
+        
+
+
+        // item数量
+        var itemNums;
+        //默认游戏难度
+        var currentLevel = 1;
+        // 5.1 定义一个变量,保存已经翻转的图片数量;
+        var turnNum = 0;
+        // 4.1 定义一个空的比对数组
+        var judegArr = [];
+        //定义一个变量保存图片组的数量
+        var imgNum = 0;
+        //定义步数变量
+        var stepNum = 0;
+        //定义开始和结束时间
+        var start,end;
+
+        // 1.定义一个函数，创建游戏难度
+        function createItemsByLevel(level) {
+            start = new Date();
+            console.log(start);
+            // 清空比对数组里面的数据
+            judegArr = [];
+            imgNum = 0;
+            stepNum = 0;
+            // 定义一个变量,保存已经翻转的图片数量;
+            turnNum = 0;
+            //通过当前游戏等级计算出总共有多少个item数量
+            itemNums = 2 * level * 2 * level;
+            //清空game游戏内容
+            gameDom.innerHTML = "";
+            //生成一对一的图片数据
+            var imgDataArr = getImgDataArr();
+            //循环生成 itemNums 个 item
+            for (i = 1; i <= itemNums; i++) {
+                //通过js动态生成item
+                var newItem = document.createElement("div");
+                //设置.item的类名
+                newItem.className = 'item';
+
+                //动态计算item 的宽高,注意减掉边框大小
+                var itemW = 600 / (2 * level) - 4;
+                var itemH = 600 / (2 * level) - 4;
+                //设置新盒子的宽高
+                newItem.style.width = itemW + "px";
+                newItem.style.height = itemH + "px";
+
+                // 设置新的item的自定义属性 data-index
+                newItem.dataset.index = imgDataArr[i - 1].index;
+
+                // 通过js动态生成.pic盒子
+                var newPic = document.createElement("div");
+                //设置.pic的类名
+                newPic.className = 'pic';
+                //设置pic背景图片
+                newPic.style.backgroundImage = imgDataArr[i - 1].url;
+                //把pic添加到新的.item 中
+                newItem.appendChild(newPic);
+                //把新的.item添加到game中
+                gameDom.appendChild(newItem);
+            }
+        }
+
+        // //调用游戏难度函数
+        createItemsByLevel(1);
+
+        //实现点击下拉框改变游戏难度
+        // 1.2 实现点击小游戏改变游戏难度
+        //获取level对象
+        var selectLevel = document.querySelector(".level");
+        // 获取new-game-btn对象
+        var newGame = document.querySelector(".new-game-btn");
+
+        //onchange表示下拉框选项发生变化才会触发，触发后改变相应代码
+        selectLevel.onchange = function () {
+            // 获取选中option的value值,那么就是游戏难度等级
+            currentLevel = selectLevel.value;
+            // console.log("当前游戏难度等级:", currentLevel);
+
+            // 调用根据游戏难度等级创建对应的.item的函数
+            createItemsByLevel(currentLevel);
+        };
+
+        newGame.onclick = function () {
+            // 根据当前游戏的难度等级,调用createItemsByLevel()函数
+            createItemsByLevel(currentLevel);
+        }
+
+        // 2.生成成对的随机背景图，并设置为.pic盒子的背景图
+        // 2.1 打乱数组方法
+        function shuffleArr(myArr) {
+            //打乱数组
+            myArr.sort(function () {
+                return Math.random() - 0.5;
+            });
+            //返回打乱的数组
+            return myArr;
+        }
+
+        // 2.2 根据图片数据生成打乱的图片地址数组
+        function getRandomImgArr() {
+            // 我们准备的图片数量为20
+            var newArr = [];
+
+            for (i = 1; i <= 20; i++) {
+                // 往新数组中添加数组元素
+                // 语法：数组变量名.push（添加值1,添加值2...）
+                newArr.push(i);
+            }
+            //打乱数组
+            shuffleArr(newArr);
+            //返回打乱以后的数组
+            return newArr;
+        }
+
+        // 2.3 根据.item的总数量生成一对一的图片数据
+        function getImgDataArr() {
+            // 获取随机图片数组
+            var randomArr = getRandomImgArr();
+            // 计算出现在要准备多少对图片  itemNums变量保存的就是.item个数总数量
+            var couples = itemNums / 2;
+            // 准备一个新数组
+            var newArr = [];
+            // 循环
+            for (var i = 1; i <= couples; i++) {
+                // 每次取出来的数字保存到num变量中
+                var num = randomArr[i];
+                // 准备一个js对象
+                var imgInfo = {
+                    // index是索引号
+                    index: num,
+                    // url是背景图片对应的路径
+                    url: "url(./images/" + num + ".png)"
+                }
+                // 添加js对象到新数组中
+                newArr.push(imgInfo, imgInfo);
+            }
+
+            // 打乱数组
+            shuffleArr(newArr);
+            // 返回打乱以后的数组
+            return newArr;
+        }
+
+
+        // 4.比对两张牌是否为同一张
+
+        // 功能5: 判断游戏是否胜利
+
+
+        // 3.使用事件委托给每个盒子绑定点击事件
+        gameDom.onclick = function (e) {
+            
+            // 判断触发事件的dom对象是否还有.item类名
+            var isItem = e.target.classList.contains("item");
+            // 添加类名
+            if (isItem) {
+                e.target.classList.add("on");
+                judegArr.push({
+                    dom: e.target,
+                    index: e.target.dataset.index
+                });
+
+                //判断数组长度是否为2
+                if (judegArr.length === 2) {
+                    // 从judegArr数组中取出两个元素
+                    var first = judegArr[0];
+                    var second = judegArr[1];
+                    // 判断index是否相同
+                    if (first.index == second.index) {
+                        // 如果图案一致修改背景颜色
+                        first.dom.classList.add("done");
+                        second.dom.classList.add("done");
+                        // 5.2 每次成功比对,翻转图片数量自加2;
+                        turnNum += 2;
+                        imgNum += 1;
+                        end = new Date();
+                        console.log(end);
+                        // 5.3 在点击的时候,判断翻转图片数量是否等于所有块盒子(.item)的数量
+                        if (turnNum == itemNums) {
+                            setTimeout(function () {
+                                alert("通关喽! " + "本次所用的时间：" + (end - start));
+                            }, 400)
+                            
+                        }
+                    } else {
+                        //延时器，等待多久在执行指定代码块
+                        setTimeout(function () {
+                            first.dom.classList.remove("on");
+                            second.dom.classList.remove("on");
+                        }, 400)
+                    }
+
+                    //清空数组,方便下一次比对
+                    judegArr.length = 0;
+                    // judegArr = [];
+                }
+                stepNum = stepNum + 1;
+                step.innerHTML = stepNum ;
+
+                var couples = itemNums / 2;
+                progress.innerHTML =  imgNum + "/" + couples;
+            }
+        }
+
+        var step = document.querySelector(".step");
+        var progress = document.querySelector(".game-progress");
+
+        // //总次数
+        
+
+        // console.log(step);
+        // console.log(couples);
+        // console.log(itemNums);
+        // progress.innerHTML =0+ "/"+couples;
+
+    </script>
+</body>
+
+</html>

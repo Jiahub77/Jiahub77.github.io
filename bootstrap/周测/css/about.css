@@ -1,6 +1,7 @@
 body .banner {
   position: relative;
   background-image: linear-gradient(180deg, rgba(238, 255, 200, 0), #e9ffb6);
+  z-index: -1;
 }
 body .banner .inner-content {
   padding: 160px 0;
@@ -73,8 +74,8 @@ body .learn .learn-imgs {
   padding-bottom: 215px;
 }
 body .learn .learn-imgs .learn1 {
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 100%;
 }
 body .learn .learn-imgs .absolute {
   position: absolute;
@@ -89,8 +90,8 @@ body .learn .learn-imgs .learn {
 }
 body .learn .learn-imgs .learn2 {
   position: absolute;
-  height: 350px;
-  width: 350px;
+  height: 70%;
+  width: 70%;
   bottom: 0;
   left: 0;
 }

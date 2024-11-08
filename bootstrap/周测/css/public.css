@@ -12,12 +12,6 @@ body .header {
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
   line-height: 50px;
 }
-body .header .navbar-light .navbar-nav .nav-link {
-  color: #000;
-}
-body .header .dropdown-menu {
-  top: 119%;
-}
 body .header .right-item {
   display: flex;
   align-items: center;

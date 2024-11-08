@@ -54,6 +54,7 @@ body .banner {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  z-index: -1;
 }
 body .banner .hero3 {
   position: absolute;

@@ -4,15 +4,12 @@ body .header {
   position: fixed;
   z-index: 99;
   top: 0;
-  background: url("../img/bg1.jpg");
+  background: #fff;
   animation-name: animationFade;
   animation-duration: 1s;
   animation-fill-mode: both;
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
   line-height: 50px;
-}
-body .header .navbar-light .navbar-nav .nav-link {
-  color: #fff;
 }
 body #banner {
   padding-top: 150px;

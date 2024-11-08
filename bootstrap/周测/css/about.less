@@ -7,6 +7,7 @@ body {
     .banner {
         position: relative;
         background-image: linear-gradient(180deg, rgba(238, 255, 200, 0), #e9ffb6);
+        z-index: -1;
 
         .inner-content {
             padding: 160px 0;
@@ -93,8 +94,8 @@ body {
             padding-bottom: 215px;
 
             .learn1 {
-                width: 350px;
-                height: 350px;
+                width: 100%;
+                height: 100%;
             }
 
             .absolute {
@@ -111,8 +112,8 @@ body {
 
             .learn2 {
                 position: absolute;
-                height: 350px;
-                width: 350px;
+                height: 70%;
+                width: 70%;
                 bottom: 0;
                 left: 0;
             }
@@ -128,27 +129,32 @@ body {
         }
     }
 
-    .video{
-        .video-content{
-            h2{
+    .video {
+        .video-content {
+            h2 {
                 font-size: 70px;
                 margin-bottom: 15px;
                 font-weight: bold;
-                span{
+
+                span {
                     color: #f7941e;
                 }
             }
+
             p {
                 padding-right: 75px;
                 color: #737477;
             }
         }
-        .video-square{
+
+        .video-square {
             position: relative;
-            img{
+
+            img {
                 max-width: 100%;
             }
-            svg{
+
+            svg {
                 color: orange;
                 position: absolute;
                 top: 48%;
@@ -330,6 +336,7 @@ body {
 
         }
     }
+
     .letter {
         padding-top: 60px;
         padding-bottom: 60px;

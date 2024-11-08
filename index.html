@@ -1,92 +1,360 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <!-- 必须的 meta 标签 -->
-    <meta charset="utf-8">
-    <!-- 宽度等于视口宽度，不允许缩放和拉伸 -->
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1,user-scalable=no">
-
-    <!-- Bootstrap 的 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-    <link rel="stylesheet" href="./css/demo.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/output.css" rel="stylesheet">
+    <title>个人网站</title>
 </head>
+<style>
+    /* 隐藏滚动条（适用于 Webkit 内核浏览器，如 Chrome 和 Safari） */
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
 
-<body>
-    <!-- <div class="container"> -->
-        <div class="row contain">
-            <aside class="col-md-3 sidebar ">
-                <div class="sidebar-header">
-                    <div class=" left">P</div>
-                    <div class="right">Pro Sidebar</div>
-                </div>
-                <ul>
-                    <li><a href="">Components</a></li>
-                    <li><a href="">Charts</a></li>
-                    <li><a href="">E-commerce</a></li>
-                    <li><a href="">Maps</a></li>
-                    <li><a href="">Theme</a></li>
-                    <li><a href="">Documentation</a></li>
-                    <li><a href="">Calendar</a></li>
-                    <li><a href="">Examples</a></li>
-                </ul>
-                <div class="sidebar-footer">
-                    <div class="footer-box">
-                        <div><img class="logo" src="./img/logo.png" alt=""></div>
-                        <div style="padding: 0 10px">
-                            <span style="display: block; margin-bottom: 10px">Pro sidebar is also available as a react package</span>
-                        </div>
-                        <div>
-                            <img src="./img/react-pro-sidebar.svg" alt="">
-                        </div>
-                        <div>
-                            <a href="">Check it out!</a>
+    /* 隐藏滚动条（适用于 Firefox） */
+    .scrollbar-hidden {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        /* 或 "thin" 如果你想要一个很细的滚动条 */
+    }
+</style>
+
+<body class="bg-gray-100 dark:bg-gray-900">
+
+    <div class="w-full bg-white shadow-lg m-auto overflow-hidden">
+        <header class="z-40 items-center w-full h-16 bg-white shadow-lg dark:bg-gray-900">
+            <div class="relative z-20 flex flex-col justify-center h-full px-3 mx-auto flex-center">
+                <div class="relative flex items-center w-full pl-1 lg:max-w-68 sm:pr-2 sm:ml-0">
+                    <div class="container relative left-0 z-50 flex w-3/4 h-auto h-full">
+                        <div class="relative flex items-center w-full h-full lg:w-64 group">
+                            <div
+                                class="absolute z-50 flex items-center justify-center block w-auto h-10 p-3 pr-2 text-sm text-gray-500 uppercase cursor-pointer sm:hidden">
+                                <svg fill="none" class="relative w-5 h-5" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <svg class="absolute left-0 z-20 hidden w-4 h-4 ml-4 text-gray-500 pointer-events-none fill-current group-hover:text-gray-400 sm:block"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path
+                                    d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z">
+                                </path>
+                            </svg>
+                            <input type="text"
+                                class="block w-full py-1.5 pl-10 pr-4 leading-normal rounded-2xl focus:border-transparent focus:outline-none focus:ring-2 focus:ring-gray-500 ring-opacity-90 bg-gray-100 dark:bg-gray-800 text-gray-400 aa-input"
+                                placeholder="Search" />
+                            <div
+                                class="absolute right-0 hidden h-auto px-2 py-1 mr-2 text-xs text-gray-400 border border-gray-300 rounded-2xl md:block">
+                                +
+                            </div>
                         </div>
                     </div>
-                </div>
-            </aside>
-            <div class="col-md-9 layout">
-                <div class="container">
-                    <div class="row" id="one">
-                        <div class="col-md-4">
-                            <div class="shadow-item">
-                                <div class="bg-box"><img src="./bootstrap/个人网站/image/zumla-work1.jpg" alt=""></div>
-                                <div class="title"><h5>Design for Marketing Agency Startup</h5></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="shadow-item">
-                                <div class="bg-box"><img src="./bootstrap/个人网站/image/zumla-work1.jpg" alt=""></div>
-                                <div class="title"><h5>Design for Marketing Agency Startup</h5></div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="shadow-item">
-                                <div class="bg-box"><img src="./bootstrap/个人网站/image/zumla-work1.jpg" alt=""></div>
-                                <div class="title"><h5>Design for Marketing Agency Startup</h5></div>
-                            </div>
-                        </div>
+                    <div class="relative flex items-center justify-end w-1/4 p-1 ml-5 mr-4 sm:mr-0 sm:right-auto">
+                        <a href="#" class="relative block">
+                            <img alt="profil" src="/img/1.jpg" class="mx-auto object-cover rounded-full h-10 w-10 " />
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    <!-- </div> -->
-    
+        </header>
 
+        <div class="p-4 dark:bg-gray-900">
+            <div class="mb-4 text-center opacity-90">
+                <a href="#" class="relative block">
+                    <img alt="profil" src="./img/1.jpg" class="mx-auto object-cover rounded-full h-40 w-40 " />
+                </a>
+            </div>
+            <div class="text-center">
+                <p class="text-2xl text-gray-800 dark:text-white">
+                    Patrick Sebastien
+                </p>
+                <p class="text-xl font-light text-gray-500 dark:text-gray-200">
+                    Developpeur
+                </p>
+                <p class="max-w-xs py-4 font-light text-gray-500 text-md dark:text-gray-400  m-auto">
+                    Patrick Sébastien, born November 14, 1953 in Brive-la-Gaillarde, is an imitator, humorist, actor,
+                    director, singer, songwriter, poet, writer
+                </p>
+            </div>
+        </div>
+
+        <!-- html+css -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">HTML
+                    + CSS
+                </h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/html-demo1.png"
+                            alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html&css/demo1/index.html">静态首页</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/html-demo2.png"
+                            alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html&css/demo2/index.html">柒品家具</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- html5+css3 -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    HTML5 + CSS3
+                </h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/touch-swiper.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html5&css3/触摸/触控轮播图.html">Touch Swiper</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/拖拽.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html5&css3/拖拽/外部图片拖拽.html">draggable Demo</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/localStorage.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html5&css3/h5存储.html/收藏.html">localStorage</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Js -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    Javascript
+                </h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js1.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="">翻牌小游戏</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js3.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/javascript/拼图/华容道.html">华容道</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js4.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/javascript/拼图/拼图.html">拼图</a></h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js5.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/javascript/时钟/圆钟.html">时钟</a></h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js8.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/javascript/手风琴&卡片&选座/图片放大镜.html">图片放大镜</a></h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/js9.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/javascript/song/歌词播放.html">歌词播放器</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ajax -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">ajax
+                </h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/baidu时钟.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="">时钟</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- jQuery -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    jQuery</h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/jq手风琴.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/jQuery/作业2-手风琴.html">手风琴</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/jq轮播图.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/jQuery/过渡动画无缝轮播图.html">无缝轮播图</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/jq电梯.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/jQuery/电梯.html">电梯</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Canvas -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    Canvas</h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-cover w-full rounded-lg h-96 " src="./img/canvas1.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html5&css3/canvas/扇形图.html">扇形图</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-cover w-full rounded-lg h-96 " src="./img/五子棋.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/html5&css3/canvas/五子棋.html">五子棋</a>
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- es6 -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    Canvas</h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-contain bg-gray-100 w-full rounded-lg h-96 " src="./img/ball.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/es6/es6重写小球球.html">弹球打砖游戏</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- bootstrap -->
+        <section class="bg-white dark:bg-gray-900 pt-12">
+            <div class="container px-6 py-10 mx-auto">
+                <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+                    bootstrap</h1>
+                <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-cover w-full rounded-lg h-96 " src="./img/bootstrap3.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/bootstrap/个人网站/index.html">个人网站</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-cover w-full rounded-lg h-96 " src="./img/bootstrap2.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/bootstrap/宠物网站/anli.html">宠物培训</a>
+                        </h2>
+                    </div>
+                    <div class="p-8 rounded-2xl shadow-md hover:shadow-lg transition-all hover:-translate-y-3">
+                        <img class="object-cover w-full rounded-lg h-96 " src="./img/bootstrap1.png" alt="">
+                        <h2 class="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">
+                            <a target="_blank" href="https://Jiahub77.github.io/bootstrap/周测/home.html">绿色早教幼儿教育培训</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-300 dark:bg-gray-900 w-full py-8 pt-12">
+            <div class="max-w-screen-xl px-4 mx-auto">
+                <ul class="flex flex-wrap justify-around max-w-screen-md mx-auto text-lg font-bold">
+                    <li class="my-2">
+                        <a class="text-black dark:text-gray-400 hover:text-gray-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+                            href="#">
+                            案例
+                        </a>
+                    </li>
+                    <li class="my-2">
+                        <a class="text-black dark:text-gray-400 hover:text-gray-400 dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
+                            href="#">
+                            联系
+                        </a>
+                    </li>
+                </ul>
+                <div class="pt-8 flex max-w-xs mx-auto items-center justify-center">
+                    <a href="#"
+                        class="text-gray-400 transition-colors duration-200 hover:text-gray-800 dark:hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="text-xl transition-colors duration-200 hover:text-gray-800 dark:hover:text-white"
+                            viewBox="0 0 1792 1792">
+                            <path
+                                d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5q0 251-146.5 451.5t-378.5 277.5q-27 5-40-7t-13-30q0-3 .5-76.5t.5-134.5q0-97-52-142 57-6 102.5-18t94-39 81-66.5 53-105 20.5-150.5q0-119-79-206 37-91-8-204-28-9-81 11t-92 44l-38 24q-93-26-192-26t-192 26q-16-11-42.5-27t-83.5-38.5-85-13.5q-45 113-8 204-79 87-79 206 0 85 20.5 150t52.5 105 80.5 67 94 39 102.5 18q-39 36-49 103-21 10-45 15t-57 5-65.5-21.5-55.5-62.5q-19-32-48.5-52t-49.5-24l-20-3q-21 0-29 4.5t-5 11.5 9 14 13 12l7 5q22 10 43.5 38t31.5 51l10 23q13 38 44 61.5t67 30 69.5 7 55.5-3.5l23-4q0 38 .5 88.5t.5 54.5q0 18-13 30t-40 7q-232-77-378.5-277.5t-146.5-451.5q0-209 103-385.5t279.5-279.5 385.5-103zm-477 1103q3-7-7-12-10-3-13 2-3 7 7 12 9 6 13-2zm31 34q7-5-2-16-10-9-16-3-7 5 2 16 10 10 16 3zm30 45q9-7 0-19-8-13-17-6-9 5 0 18t17 7zm42 42q8-8-4-19-12-12-20-3-9 8 4 19 12 12 20 3zm57 25q3-11-13-16-15-4-19 7t13 15q15 6 19-6zm63 5q0-13-17-11-16 0-16 11 0 13 17 11 16 0 16-11zm58-10q-2-11-18-9-16 3-14 15t18 8 14-14z">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var isDown = false;
+        var startX;
+        var scrollLeft;
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"></script>
+        var scrollContainers = document.querySelectorAll('.stopDefault');
+        scrollContainers.forEach(scrollContainer => {
+            if (scrollContainer) {
+                scrollContainer.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    isDown = true;
+                    // 鼠标按下的位置
+                    startX = e.pageX - scrollContainer.offsetLeft;
+                    scrollLeft = scrollContainer.scrollLeft;
+                });
+                scrollContainer.addEventListener('mouseleave', function () {
+                    isDown = false;
+                });
+                scrollContainer.addEventListener('mouseup', function () {
+                    isDown = false;
+                });
+                scrollContainer.addEventListener('mousemove', function (e) {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - scrollContainer.offsetLeft;
+                    const walk = (x - startX) * 1; // 速度可以调整
+                    scrollContainer.scrollLeft = scrollLeft - walk;
+                });
+            }
+        })
+    });
+</script>
 
 </html>

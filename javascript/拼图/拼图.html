@@ -62,7 +62,7 @@
 
 <body>
     <div class="orgin">
-        <p>完成图</p><img src="./2.jpg" alt="">
+        <p>完成图</p><img src="./图片.png" alt="">
         <select name="" id="">
             <option value="3" selected>简单</option>
             <option value="4">中等</option>
@@ -96,7 +96,7 @@
             for (var i = 0; i < (level * level); i++) {
                 var li = document.createElement("li")
                 var img = document.createElement("img")
-                img.src = "./2.jpg"
+                img.src = "./图片.png"
                 li.appendChild(img)
                 stage.appendChild(li)
             }
@@ -166,7 +166,7 @@
                 return li.dataset.old == li.dataset.new
             })
             setTimeout(() => {
-                if (isWin) alert("牛逼啊你");
+                if (isWin) alert("过关啦");
             }, 1000)
         })
 

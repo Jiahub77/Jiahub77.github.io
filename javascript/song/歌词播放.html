@@ -14,22 +14,27 @@
         font-size: 18px;
     }
 
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
     .screen {
-        width: 375px;
-        height: 667px;
+        width: 100%;
+        height: 100vh;
         display: flex;
         justify-content: space-around;
-        background-image: url('../手风琴&卡片&选座/image/2.jpg');
+        flex-direction: row;
+        background: url('./图片.jpg') no-repeat;
+        background-size: cover;
         align-items: center;
-        flex-direction: column;
         border-radius: 20px;
-        margin: 8px auto;
         position: relative;
     }
 
     .blur {
-        width: 375px;
-        height: 667px;
+        width: 100%;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -39,9 +44,9 @@
     }
 
     .songImg {
-        width: 200px;
-        height: 200px;
-        margin: auto;
+        width: 400px;
+        height: 400px;
+        /* margin: auto; */
         border-radius: 50%;
         overflow: hidden;
     }
@@ -91,6 +96,11 @@
         width: 300px;
         height: 60px;
     }
+    audio{
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+    }
 </style>
 
 <body>
@@ -99,15 +109,13 @@
 
     <div class="screen">
         <div class="blur"></div>
-        <div class="songImg"><img src="../手风琴&卡片&选座/image/5.jpg" alt=""></div>
+        <div class="songImg"><img src="./图片.jpg" alt=""></div>
 
-        <div class="viewport"></div>
+        <div class="song-control">
+            <div class="viewport"></div>
+        </div>
         <audio controls src="https://music.163.com/song/media/outer/url?id=33894312.mp3"></audio>
 
-        <div class="btn">
-            <button class="prev-button">Previous</button>
-            <button class="next-button">Next</button>
-        </div>
     </div>
     <script>
         var viewport = document.querySelector(".viewport")

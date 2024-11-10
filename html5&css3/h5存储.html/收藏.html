@@ -11,15 +11,30 @@
     * {
         margin: 0;
         padding: 0;
+        z-index: 1;
+        color: #fff;
     }
 
     ul {
         list-style: none;
         width: 300px;
-        background-color: rgb(255, 255, 255);
+        background:url('./background.jpg');
+        background-size: cover;
         box-shadow: 0 0 5px 1px #ccc;
         margin: 20px auto;
         border-radius: 20px;
+        position: relative;
+    }
+    ul::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(211, 211, 211, 0.1);
+        backdrop-filter: blur(10px);
+        z-index: 0;
     }
 
     ul li {
@@ -33,6 +48,7 @@
         height: 30px;
         text-align: center;
         border: 0.1px solid #ccc;
+        color: #333;
     }
 
     .like {

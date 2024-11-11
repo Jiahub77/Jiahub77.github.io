@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇</title>
+</head>
+<style>
+    body {
+        background: url('./img/bg.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .snake {
+        width: 600px;
+        height: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 40px auto 20px;
+        background-color: rgb(255, 255, 255, 0.7);
+        position: relative;
+    }
+
+    .item {
+        width: 40px;
+        height: 40px;
+        border: 2px solid #fff;
+        box-sizing: border-box;
+    }
+
+    .snake-body {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        background: url("./img/body.png") no-repeat;
+        background-size: cover;
+    }
+
+    .food {
+        background-color: yellowgreen;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        /* top: 60px;
+        left: 30px; */
+    }
+
+    .btn {
+        margin: auto;
+        padding: 10px;
+        border-radius: 20px;
+        font-size: 24px;
+        background-color: orange;
+        color: #fff;
+        font-weight: bold;
+        width: 300px;
+        text-align: center;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="snake">
+
+    </div>
+    <div class="score"></div>
+    <div class="btn">开始游戏</div>
+    <script>
+        var snake = document.querySelector(".snake");
+        var btn = document.querySelector(".btn")
+
+        var row = snake.clientWidth / 40;
+        var col = snake.clientHeight / 40;
+
+        // 动态生成格子
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j < col; j++) {
+                var item = document.createElement("div");
+                item.classList = "item";
+                snake.appendChild(item);
+            }
+        }
+
+        // 初始化食物
+        var food = "";
+        function getFood() {
+            if (food) {
+                var lastFood = document.querySelector(".food")
+                snake.removeChild(lastFood)
+            }
+
+            food = [Math.floor(Math.random() * row), Math.floor(Math.random() * col)]
+
+            var newFood = document.createElement("div")
+            newFood.classList = "food"
+            newFood.style.left = food[0] * 40 + "px"
+            newFood.style.top = food[1] * 40 + "px"
+            snake.appendChild(newFood)
+            console.log(newFood);
+
+        }
+        getFood()
+
+
+        // 初始化蛇的位置，蛇头在(0, 0)，蛇身在(0, 1)，(0, 2)
+        var snakebody = [[0, 0], [0, 1], [0, 2]];
+        // 存储蛇的DOM元素
+        var snakeElements = [];
+
+        // 初始移动的方向为向右
+        var direction = "right";
+
+        // 画蛇
+        function drawSnake() {
+            snakebody.forEach((item, index) => {
+                var snakePart
+                // 如果蛇部分还没有对应的元素，创建它
+                if (!snakeElements[index]) {
+                    snakePart = document.createElement("div");
+                    snakePart.classList.add("snake-body");
+                    snake.appendChild(snakePart);
+                    snakeElements[index] = snakePart;
+                } else {
+                    snakePart = snakeElements[index];
+                }
+                // 更新蛇身部分的位置
+                snakePart.style.left = item[1] * 40 + 'px';
+                snakePart.style.top = item[0] * 40 + 'px';
+            })
+        }
+        drawSnake()
+
+        // 监听移动方向
+        document.addEventListener("keydown", function (e) {
+            e.preventDefault()
+            switch (e.keyCode) {
+                case 37:
+                    if (direction !== "right") direction = "left"
+                    break
+                case 38:
+                    if (direction !== "dowm") direction = "up"
+                    break
+                case 39:
+                    if (direction !== "left") direction = "right"
+                    break
+                case 40:
+                    if (direction !== "up") direction = "down"
+                    break
+            }
+        })
+
+        // 移动蛇
+        function moveSnake() {
+            var head = snakebody[snakebody.length - 1]
+            var newHead
+
+            switch (direction) {
+                case "left":
+                    newHead = [head[0], head[1] - 1]
+                    break
+                case "up":
+                    newHead = [head[0] - 1, head[1]]
+                    break
+                case "right":
+                    newHead = [head[0], head[1] + 1]
+                    break
+                case "down":
+                    newHead = [head[0] + 1, head[1]]
+                    break
+            }
+            snakebody.push(newHead)
+
+            if (newHead[0] === food[1] && newHead[1] === food[0]) {
+                getFood()
+            } else {
+                snakebody.shift()
+            }
+            drawSnake()
+        }
+
+        // 判断游戏是否结束
+        var reload = false
+        function ganmeOver() {
+            var head = snakebody[snakebody.length - 1]
+            if (head[0] < 0 || head[0] > row || head[1] < 0 || head[1] >= col) {
+                clearInterval(timer)
+                alert("游戏结束")
+                btn.innerText = "重新开始"
+                reload = true
+            }
+            for (var i = 0; i < snakebody.length - 1; i++) {
+                if (head[0] === snakebody[i][0] && head[1] === snakebody[i][1]) {
+                    clearInterval(timer);
+                    alert("游戏结束");
+                    btn.innerText = "重新开始"
+                    reload = true
+                }
+            }
+        }
+
+        var timer
+        var flag = false
+
+        function star() {
+            timer = setInterval(function () {
+                ganmeOver()
+                moveSnake()
+            }, 300)
+        }
+        function changeState() {
+            if (reload) {
+                location.reload()
+                return
+            }
+            flag = !flag
+            if (flag) {
+                star()
+                this.innerText = "暂停游戏"
+            } else {
+                clearInterval(timer)
+                this.innerText = "继续游戏"
+            }
+        }
+        btn.addEventListener('click', function () {
+            changeState()
+        })
+        document.addEventListener('keydown', function (e) {
+            if(e.keyCode === 32){
+                changeState()
+            }
+        })
+
+    </script>
+</body>
+
+</html>

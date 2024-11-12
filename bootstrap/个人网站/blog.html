@@ -67,23 +67,23 @@
         </div>
     </div>
 
-    <div class="latest blog pt pb">
-        <div class="container">
+    <div class="latest blog  pt pb">
+        <div class="container pt ">
             <h1 style="text-align: center;padding-bottom: 70px;">Recent blog post</h1>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 animate__animated" data-animate="animate__fadeInLeft">
                     <div class="item">
                         <div class="bg-box"><img src="./image/zumla-work1.jpg" alt=""></div>
                         <h5>How to make a website using WordPress</h5>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4  animate__animated" data-animate="animate__fadeInUp">
                     <div class="item">
                         <div class="bg-box"><img src="./image/zumla-work2.jpg" alt=""></div>
                         <h5>How to make a website using WordPress</h5>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4  animate__animated" data-animate="animate__fadeInRight">
                     <div class="item">
                         <div class="bg-box"><img src="./image/zumla-work3.jpg" alt=""></div>
                         <h5>How to make a website using WordPress</h5>
@@ -96,10 +96,10 @@
     <div class="skills">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated" data-animate="animate__fadeInUp">
                     <img class="testi-thumb" src="./image/zumla-abo-thumb.png" alt="">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated" data-animate="animate__fadeInDown">
                     <h1 style="text-align: left; padding: 70px 0;color: #fff;">I Develop Skills Regularly to Keep Me
                         Update</h1>
                     <div class="prossess-ber-plugin">
@@ -146,10 +146,10 @@
     <div class="footer-section pt">
         <div class="container">
             <div class="row">
-                <div class="col-md-2 d-none d-md-block">
+                <div class="col-md-2 d-none d-md-block animate__animated" data-animate="animate__fadeInLeft">
                     <img src="./image/footer-thumb.png" alt="">
                 </div>
-                <div class="col-md-10 col-xs-12">
+                <div class="col-md-10 col-xs-12 animate__animated" data-animate="animate__fadeInRight">
                     <h1 style="padding: 70px 0;text-align: center;">Let’s build something together</h1>
                     <p>Bangladesh</p>
                     <h5>hello_egjampol@gmail.com</h5>
@@ -159,6 +159,7 @@
             </div>
         </div>
     </div>
+
 
     <div class="skills">
 		<div class="container">
@@ -187,8 +188,33 @@
                 <path fill-rule="evenodd" d="M8 11.5a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5z" />
             </svg>
         </a>
-
     </div>
+
+        <!-- 进场动画 -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var observer = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            // 获取自定义动画效果
+                            var animation = entry.target.getAttribute('data-animate');
+                            // 添加动画效果
+                            entry.target.classList.add(animation);
+                            // 可选：在动画结束后取消观察
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px',
+                    threshold: 0 // 调整这个值以控制何时触发动画
+                });
+    
+                // 观察所有模块
+                document.querySelectorAll('.animate__animated').forEach(function (module) {
+                    observer.observe(module);
+                });
+            });
+        </script>
 
     <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

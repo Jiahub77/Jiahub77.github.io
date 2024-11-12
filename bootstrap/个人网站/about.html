@@ -14,7 +14,7 @@
 
     <title>Hello, world!</title>
     <link rel="stylesheet" href="./css/练习.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
@@ -70,10 +70,10 @@
     <div class="skills">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated" data-animate="animate__fadeInUp">
                     <img class="testi-thumb" src="./image/zumla-abo-thumb.png" alt="">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated" data-animate="animate__fadeInDown">
                     <h1 style="text-align: left; padding: 70px 0;color: #fff;">I Develop Skills Regularly to Keep Me
                         Update</h1>
                     <div class="prossess-ber-plugin">
@@ -121,7 +121,7 @@
                 <div class="col-md-6">
                     <img class="testi-thumb" src="./image/zumla-testi-thumb.png" alt="">
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 animate__animated" data-animate="animate__fadeInRight">
                     <h1 style="padding: 70px 0;">What I Do for Clients</h1>
                     <div><img src="./image/zumla-testi-icon.png" alt=""></div>
                     <p>Donec imperdiet risus at tortor consequat
@@ -138,18 +138,28 @@
 
     <div class="brand-area">
         <div class="container">
+            <div class="row">
+                <div class="col-md-4 brand-thumb animate__animated" data-animate="animate__fadeInLeft"><img
+                        src="./image/zumla-br-1 (1).png" alt=""></div>
+                <div class="col-md-4 brand-thumb animate__animated" data-animate="animate__fadeInDown"><img
+                        src="./image/zumla-br-1.png" alt=""></div>
+                <div class="col-md-4 brand-thumb animate__animated" data-animate="animate__fadeInRight"><img
+                        src="./image/zumla-br-2.png" alt=""></div>
+            </div>
             <div class="row pt">
-                <div class="col-md-6">
-                    <h1>I Can Design Anything <br>You Want</h1>
-                    <p>
-                        Hello there! I am a web designer, and I am very passionate and dedicated
-                        to my work. With 20 years experience as a professional web developer,
-                        I have acquired the skills <br>
+                <div class="col-md-6" style="overflow: hidden;">
+                    <div class="animate__animated" data-animate="animate__fadeInLeft">
+                        <h1>I Can Design Anything <br>You Want</h1>
+                        <p>
+                            Hello there! I am a web designer, and I am very passionate and dedicated
+                            to my work. With 20 years experience as a professional web developer,
+                            I have acquired the skills <br>
 
-                        and knowledge necessary to make your project a success. I enjoy every step of the <br>
-                        design process, from discussion and collaboration.
-                    </p>
-                    <div class="contact-btn">Contact Us</div>
+                            and knowledge necessary to make your project a success. I enjoy every step of the <br>
+                            design process, from discussion and collaboration.
+                        </p>
+                        <div class="contact-btn">Contact Us</div>
+                    </div>
                 </div>
                 <div class="col-md-6"><img src="./image/zumla-cont-1.png" alt=""></div>
             </div>
@@ -175,9 +185,11 @@
     </div>
 
     <div class="skills">
-		<div class="container">
+        <div class="container">
             <div class="row">
-                <div class="col-md-3"><h1 style="color: #fff;">myInfo</h1></div>
+                <div class="col-md-3">
+                    <h1 style="color: #fff;">myInfo</h1>
+                </div>
                 <div class="col-md-6">
                     <ul>
                         <li>Services</li>
@@ -185,10 +197,12 @@
                         <li>Pricing Plan</li>
                     </ul>
                 </div>
-                <div class="col-md-3"><h1 style="color: #fff;">myInfo</h1></div>
+                <div class="col-md-3">
+                    <h1 style="color: #fff;">myInfo</h1>
+                </div>
             </div>
         </div>
-	</div>
+    </div>
 
 
     <div class="up-btn">
@@ -204,6 +218,31 @@
 
     </div>
 
+    <!-- 进场动画 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        // 获取自定义动画效果
+                        var animation = entry.target.getAttribute('data-animate');
+                        // 添加动画效果
+                        entry.target.classList.add(animation);
+                        // 可选：在动画结束后取消观察
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0 // 调整这个值以控制何时触发动画
+            });
+
+            // 观察所有模块
+            document.querySelectorAll('.animate__animated').forEach(function (module) {
+                observer.observe(module);
+            });
+        });
+    </script>
     <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

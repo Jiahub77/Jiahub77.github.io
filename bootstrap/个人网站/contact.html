@@ -91,10 +91,10 @@
     <div class="footer-section pt">
         <div class="container">
             <div class="row">
-                <div class="col-md-2 d-none d-md-block">
+                <div class="col-md-2 d-none d-md-block animate__animated" data-animate="animate__fadeInLeft">
                     <img src="./image/footer-thumb.png" alt="">
                 </div>
-                <div class="col-md-10 col-xs-12">
+                <div class="col-md-10 col-xs-12 animate__animated" data-animate="animate__fadeInRight">
                     <h1 style="padding: 70px 0;text-align: center;">Let’s build something together</h1>
                     <p>Bangladesh</p>
                     <h5>hello_egjampol@gmail.com</h5>
@@ -138,6 +138,31 @@
         </a>
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var observer = new IntersectionObserver(function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        // 获取自定义动画效果
+                        var animation = entry.target.getAttribute('data-animate');
+                        // 添加动画效果
+                        entry.target.classList.add(animation);
+                        // 可选：在动画结束后取消观察
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0 // 调整这个值以控制何时触发动画
+            });
+
+            // 观察所有模块
+            document.querySelectorAll('.animate__animated').forEach(function (module) {
+                observer.observe(module);
+            });
+        });
+    </script>
 
     <!-- 选项 1：jQuery 和 Bootstrap 集成包（集成了 Popper） -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

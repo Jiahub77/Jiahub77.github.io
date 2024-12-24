@@ -1,0 +1,1872 @@
+{
+    "data": {
+      "emptyPage": false,
+      "releasePointInfo": [
+        {
+          "date": "2011-08-04",
+          "desc": "首映",
+          "descColor": "#EB0029"
+        },
+        {
+          "date": "2024-11-29",
+          "desc": "重映",
+          "descColor": "#EB0029"
+        }
+      ],
+      "accountStatus": 1,
+      "wantList": {
+        "show": false
+      },
+      "dateRange": {
+        "endDate": 20241212,
+        "markingDates": [20241018],
+        "ready": true,
+        "startDate": 20130713,
+        "wishHourlyEndDate": 20241212,
+        "wishHourlyStartDate": 20130713,
+        "wishSourceEndDate": 20241128,
+        "wishSourceStartDate": 20241114
+      },
+      "summary": {
+        "afterReleaseIncreaseInfo": {
+          "count": "85,859",
+          "title": "上映后想看",
+          "unit": ""
+        },
+        "beforeReleaseIncreaseInfo": {
+          "count": "0",
+          "title": "上映前想看",
+          "unit": ""
+        },
+        "releaseStatus": 2,
+        "reshow": true,
+        "showStatus": 4,
+        "wishInfo": {
+          "count": "85,859",
+          "title": "累计想看",
+          "unit": ""
+        },
+        "showArr": [
+          {
+            "count": "85,859",
+            "title": "累计想看",
+            "unit": "",
+            "key": "wishInfo"
+          },
+          {
+            "count": "0",
+            "title": "上映前想看",
+            "unit": "",
+            "key": "beforeReleaseIncreaseInfo"
+          },
+          {
+            "count": "85,859",
+            "title": "上映后想看",
+            "unit": "",
+            "key": "afterReleaseIncreaseInfo"
+          }
+        ],
+        "isReleaseStatus": true,
+        "isRun": false,
+        "showKeys": [
+          "wishInfo",
+          "beforeReleaseIncreaseInfo",
+          "afterReleaseIncreaseInfo"
+        ]
+      },
+      "trendData": {
+        "data": {
+          "lineTitles": [],
+          "pointTitles": [
+            {
+              "color": "#FC8B00",
+              "name": "营销事件"
+            }
+          ],
+          "series": [
+            {
+              "color": "#FC8B00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增288人",
+                  "xValue": "20241030",
+                  "yPercent": 0,
+                  "yValue": 288
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增258人",
+                  "xValue": "20241031",
+                  "yPercent": 0,
+                  "yValue": 258
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增555人",
+                  "xValue": "20241101",
+                  "yPercent": 0,
+                  "yValue": 555
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增688人",
+                  "xValue": "20241102",
+                  "yPercent": 0,
+                  "yValue": 688
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增548人",
+                  "xValue": "20241103",
+                  "yPercent": 0,
+                  "yValue": 548
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增389人",
+                  "xValue": "20241104",
+                  "yPercent": 0,
+                  "yValue": 389
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增312人",
+                  "xValue": "20241105",
+                  "yPercent": 0,
+                  "yValue": 312
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增245人",
+                  "xValue": "20241106",
+                  "yPercent": 0,
+                  "yValue": 245
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增248人",
+                  "xValue": "20241107",
+                  "yPercent": 0,
+                  "yValue": 248
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增275人",
+                  "xValue": "20241108",
+                  "yPercent": 0,
+                  "yValue": 275
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增258人",
+                  "xValue": "20241109",
+                  "yPercent": 0,
+                  "yValue": 258
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增233人",
+                  "xValue": "20241110",
+                  "yPercent": 0,
+                  "yValue": 233
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增148人",
+                  "xValue": "20241111",
+                  "yPercent": 0,
+                  "yValue": 148
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增137人",
+                  "xValue": "20241112",
+                  "yPercent": 0,
+                  "yValue": 137
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增122人",
+                  "xValue": "20241113",
+                  "yPercent": 0,
+                  "yValue": 122
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增109人",
+                  "xValue": "20241114",
+                  "yPercent": 0,
+                  "yValue": 109
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增332人",
+                  "xValue": "20241115",
+                  "yPercent": 0,
+                  "yValue": 332
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增479人",
+                  "xValue": "20241116",
+                  "yPercent": 0,
+                  "yValue": 479
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增362人",
+                  "xValue": "20241117",
+                  "yPercent": 0,
+                  "yValue": 362
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增269人",
+                  "xValue": "20241118",
+                  "yPercent": 0,
+                  "yValue": 269
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增204人",
+                  "xValue": "20241119",
+                  "yPercent": 0,
+                  "yValue": 204
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增188人",
+                  "xValue": "20241120",
+                  "yPercent": 0,
+                  "yValue": 188
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增206人",
+                  "xValue": "20241121",
+                  "yPercent": 0,
+                  "yValue": 206
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增422人",
+                  "xValue": "20241122",
+                  "yPercent": 0,
+                  "yValue": 422
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增636人",
+                  "xValue": "20241123",
+                  "yPercent": 0,
+                  "yValue": 636
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增534人",
+                  "xValue": "20241124",
+                  "yPercent": 0,
+                  "yValue": 534
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增496人",
+                  "xValue": "20241125",
+                  "yPercent": 0,
+                  "yValue": 496
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增515人",
+                  "xValue": "20241126",
+                  "yPercent": 0,
+                  "yValue": 515
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增463人",
+                  "xValue": "20241127",
+                  "yPercent": 0,
+                  "yValue": 463
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增546人",
+                  "xValue": "20241128",
+                  "yPercent": 0,
+                  "yValue": 546
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增538人",
+                  "xValue": "20241129",
+                  "yPercent": 0,
+                  "yValue": 538
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增542人",
+                  "xValue": "20241130",
+                  "yPercent": 0,
+                  "yValue": 542
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增358人",
+                  "xValue": "20241201",
+                  "yPercent": 0,
+                  "yValue": 358
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增174人",
+                  "xValue": "20241202",
+                  "yPercent": 0,
+                  "yValue": 174
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增129人",
+                  "xValue": "20241203",
+                  "yPercent": 0,
+                  "yValue": 129
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增148人",
+                  "xValue": "20241204",
+                  "yPercent": 0,
+                  "yValue": 148
+                },
+                {
+                  "eventNum": 0,
+                  "todayWishDesc": "当日新增144人",
+                  "xValue": "20241205",
+                  "yPercent": 0,
+                  "yValue": 144
+                }
+              ],
+              "preDayEvent": false,
+              "serieType": 4
+            }
+          ],
+          "yAxisIntervalNum": 38,
+          "yAxisMaxValue": 760,
+          "yAxisMinValue": 0
+        },
+        "hasRelease": true,
+        "referRange": {
+          "endDate": 20241205,
+          "startDate": 20241030,
+          "today": "2024-11-28"
+        },
+        "releaseFlag": 0,
+        "type": 2,
+        "userPermission": true,
+        "wishRange": {
+          "endDate": 20241212,
+          "markingDates": [],
+          "ready": true,
+          "startDate": 20130713
+        },
+        "wantChart": {
+          "type": "area",
+          "xAxis": {
+            "type": "category",
+            "data": [
+              "10/30",
+              "10/31",
+              "11/1",
+              "11/2",
+              "11/3",
+              "11/4",
+              "11/5",
+              "11/6",
+              "11/7",
+              "11/8",
+              "11/9",
+              "11/10",
+              "11/11",
+              "11/12",
+              "11/13",
+              "11/14",
+              "11/15",
+              "11/16",
+              "11/17",
+              "11/18",
+              "11/19",
+              "11/20",
+              "11/21",
+              "11/22",
+              "11/23",
+              "11/24",
+              "11/25",
+              "11/26",
+              "11/27",
+              "11/28",
+              "11/29",
+              "11/30",
+              "12/1",
+              "12/2",
+              "12/3",
+              "12/4",
+              "12/5"
+            ],
+            "style": {
+  
+            }
+          },
+          "yAxis": {
+            "type": "points",
+            "style": {
+  
+            },
+            "data": [0, 760]
+          },
+          "tooltip": {
+            "pointIndex": 29
+          },
+          "series": [
+            {
+              "type": "area",
+              "name": "today",
+              "data": [
+                {
+                  "xValue": "10/30",
+                  "yValue": 288,
+                  "tooltip": {
+                    "val0": "20241030",
+                    "val1": 0,
+                    "val3": "当日新增288人",
+                    "val4": "当日新增288人"
+                  }
+                },
+                {
+                  "xValue": "10/31",
+                  "yValue": 258,
+                  "tooltip": {
+                    "val0": "20241031",
+                    "val1": 0,
+                    "val3": "当日新增258人",
+                    "val4": "当日新增258人"
+                  }
+                },
+                {
+                  "xValue": "11/1",
+                  "yValue": 555,
+                  "tooltip": {
+                    "val0": "20241101",
+                    "val1": 0,
+                    "val3": "当日新增555人",
+                    "val4": "当日新增555人"
+                  }
+                },
+                {
+                  "xValue": "11/2",
+                  "yValue": 688,
+                  "tooltip": {
+                    "val0": "20241102",
+                    "val1": 0,
+                    "val3": "当日新增688人",
+                    "val4": "当日新增688人"
+                  }
+                },
+                {
+                  "xValue": "11/3",
+                  "yValue": 548,
+                  "tooltip": {
+                    "val0": "20241103",
+                    "val1": 0,
+                    "val3": "当日新增548人",
+                    "val4": "当日新增548人"
+                  }
+                },
+                {
+                  "xValue": "11/4",
+                  "yValue": 389,
+                  "tooltip": {
+                    "val0": "20241104",
+                    "val1": 0,
+                    "val3": "当日新增389人",
+                    "val4": "当日新增389人"
+                  }
+                },
+                {
+                  "xValue": "11/5",
+                  "yValue": 312,
+                  "tooltip": {
+                    "val0": "20241105",
+                    "val1": 0,
+                    "val3": "当日新增312人",
+                    "val4": "当日新增312人"
+                  }
+                },
+                {
+                  "xValue": "11/6",
+                  "yValue": 245,
+                  "tooltip": {
+                    "val0": "20241106",
+                    "val1": 0,
+                    "val3": "当日新增245人",
+                    "val4": "当日新增245人"
+                  }
+                },
+                {
+                  "xValue": "11/7",
+                  "yValue": 248,
+                  "tooltip": {
+                    "val0": "20241107",
+                    "val1": 0,
+                    "val3": "当日新增248人",
+                    "val4": "当日新增248人"
+                  }
+                },
+                {
+                  "xValue": "11/8",
+                  "yValue": 275,
+                  "tooltip": {
+                    "val0": "20241108",
+                    "val1": 0,
+                    "val3": "当日新增275人",
+                    "val4": "当日新增275人"
+                  }
+                },
+                {
+                  "xValue": "11/9",
+                  "yValue": 258,
+                  "tooltip": {
+                    "val0": "20241109",
+                    "val1": 0,
+                    "val3": "当日新增258人",
+                    "val4": "当日新增258人"
+                  }
+                },
+                {
+                  "xValue": "11/10",
+                  "yValue": 233,
+                  "tooltip": {
+                    "val0": "20241110",
+                    "val1": 0,
+                    "val3": "当日新增233人",
+                    "val4": "当日新增233人"
+                  }
+                },
+                {
+                  "xValue": "11/11",
+                  "yValue": 148,
+                  "tooltip": {
+                    "val0": "20241111",
+                    "val1": 0,
+                    "val3": "当日新增148人",
+                    "val4": "当日新增148人"
+                  }
+                },
+                {
+                  "xValue": "11/12",
+                  "yValue": 137,
+                  "tooltip": {
+                    "val0": "20241112",
+                    "val1": 0,
+                    "val3": "当日新增137人",
+                    "val4": "当日新增137人"
+                  }
+                },
+                {
+                  "xValue": "11/13",
+                  "yValue": 122,
+                  "tooltip": {
+                    "val0": "20241113",
+                    "val1": 0,
+                    "val3": "当日新增122人",
+                    "val4": "当日新增122人"
+                  }
+                },
+                {
+                  "xValue": "11/14",
+                  "yValue": 109,
+                  "tooltip": {
+                    "val0": "20241114",
+                    "val1": 0,
+                    "val3": "当日新增109人",
+                    "val4": "当日新增109人"
+                  }
+                },
+                {
+                  "xValue": "11/15",
+                  "yValue": 332,
+                  "tooltip": {
+                    "val0": "20241115",
+                    "val1": 0,
+                    "val3": "当日新增332人",
+                    "val4": "当日新增332人"
+                  }
+                },
+                {
+                  "xValue": "11/16",
+                  "yValue": 479,
+                  "tooltip": {
+                    "val0": "20241116",
+                    "val1": 0,
+                    "val3": "当日新增479人",
+                    "val4": "当日新增479人"
+                  }
+                },
+                {
+                  "xValue": "11/17",
+                  "yValue": 362,
+                  "tooltip": {
+                    "val0": "20241117",
+                    "val1": 0,
+                    "val3": "当日新增362人",
+                    "val4": "当日新增362人"
+                  }
+                },
+                {
+                  "xValue": "11/18",
+                  "yValue": 269,
+                  "tooltip": {
+                    "val0": "20241118",
+                    "val1": 0,
+                    "val3": "当日新增269人",
+                    "val4": "当日新增269人"
+                  }
+                },
+                {
+                  "xValue": "11/19",
+                  "yValue": 204,
+                  "tooltip": {
+                    "val0": "20241119",
+                    "val1": 0,
+                    "val3": "当日新增204人",
+                    "val4": "当日新增204人"
+                  }
+                },
+                {
+                  "xValue": "11/20",
+                  "yValue": 188,
+                  "tooltip": {
+                    "val0": "20241120",
+                    "val1": 0,
+                    "val3": "当日新增188人",
+                    "val4": "当日新增188人"
+                  }
+                },
+                {
+                  "xValue": "11/21",
+                  "yValue": 206,
+                  "tooltip": {
+                    "val0": "20241121",
+                    "val1": 0,
+                    "val3": "当日新增206人",
+                    "val4": "当日新增206人"
+                  }
+                },
+                {
+                  "xValue": "11/22",
+                  "yValue": 422,
+                  "tooltip": {
+                    "val0": "20241122",
+                    "val1": 0,
+                    "val3": "当日新增422人",
+                    "val4": "当日新增422人"
+                  }
+                },
+                {
+                  "xValue": "11/23",
+                  "yValue": 636,
+                  "tooltip": {
+                    "val0": "20241123",
+                    "val1": 0,
+                    "val3": "当日新增636人",
+                    "val4": "当日新增636人"
+                  }
+                },
+                {
+                  "xValue": "11/24",
+                  "yValue": 534,
+                  "tooltip": {
+                    "val0": "20241124",
+                    "val1": 0,
+                    "val3": "当日新增534人",
+                    "val4": "当日新增534人"
+                  }
+                },
+                {
+                  "xValue": "11/25",
+                  "yValue": 496,
+                  "tooltip": {
+                    "val0": "20241125",
+                    "val1": 0,
+                    "val3": "当日新增496人",
+                    "val4": "当日新增496人"
+                  }
+                },
+                {
+                  "xValue": "11/26",
+                  "yValue": 515,
+                  "tooltip": {
+                    "val0": "20241126",
+                    "val1": 0,
+                    "val3": "当日新增515人",
+                    "val4": "当日新增515人"
+                  }
+                },
+                {
+                  "xValue": "11/27",
+                  "yValue": 463,
+                  "tooltip": {
+                    "val0": "20241127",
+                    "val1": 0,
+                    "val3": "当日新增463人",
+                    "val4": "当日新增463人"
+                  }
+                },
+                {
+                  "xValue": "11/28",
+                  "yValue": 546,
+                  "tooltip": {
+                    "val0": "20241128",
+                    "val1": 0,
+                    "val3": "当日新增546人",
+                    "val4": "当日新增546人"
+                  }
+                },
+                {
+                  "xValue": "11/29",
+                  "yValue": 538,
+                  "tooltip": {
+                    "val0": "20241129",
+                    "val1": 0,
+                    "val3": "当日新增538人",
+                    "val4": "当日新增538人"
+                  }
+                },
+                {
+                  "xValue": "11/30",
+                  "yValue": 542,
+                  "tooltip": {
+                    "val0": "20241130",
+                    "val1": 0,
+                    "val3": "当日新增542人",
+                    "val4": "当日新增542人"
+                  }
+                },
+                {
+                  "xValue": "12/1",
+                  "yValue": 358,
+                  "tooltip": {
+                    "val0": "20241201",
+                    "val1": 0,
+                    "val3": "当日新增358人",
+                    "val4": "当日新增358人"
+                  }
+                },
+                {
+                  "xValue": "12/2",
+                  "yValue": 174,
+                  "tooltip": {
+                    "val0": "20241202",
+                    "val1": 0,
+                    "val3": "当日新增174人",
+                    "val4": "当日新增174人"
+                  }
+                },
+                {
+                  "xValue": "12/3",
+                  "yValue": 129,
+                  "tooltip": {
+                    "val0": "20241203",
+                    "val1": 0,
+                    "val3": "当日新增129人",
+                    "val4": "当日新增129人"
+                  }
+                },
+                {
+                  "xValue": "12/4",
+                  "yValue": 148,
+                  "tooltip": {
+                    "val0": "20241204",
+                    "val1": 0,
+                    "val3": "当日新增148人",
+                    "val4": "当日新增148人"
+                  }
+                },
+                {
+                  "xValue": "12/5",
+                  "yValue": 144,
+                  "tooltip": {
+                    "val0": "20241205",
+                    "val1": 0,
+                    "val3": "当日新增144人",
+                    "val4": "当日新增144人"
+                  }
+                }
+              ],
+              "color": "#FC8B00",
+              "dashed": false,
+              "style": {
+                "fill": "linear-gradient",
+                "opacity": 0.4,
+                "gradient": {
+                  "colors": [
+                    "#FC8B00"
+                  ]
+                },
+                "smooth": false
+              }
+            }
+          ]
+        }
+      },
+      "wantSource": {
+        "accountInfo": {
+          "accountStatus": 1,
+          "existWhiteList": false
+        },
+        "defaultDate": 20110803,
+        "defaultReleaseType": 0,
+        "defaultType": 1,
+        "increaseWishNum": 0,
+        "releasePhaseType": 4,
+        "wishNum": "85,859",
+        "wishSourcePlatformList": [
+          {
+            "number": 0.996999979019165,
+            "percent": "99.7%",
+            "platform": "猫眼主平台",
+            "platformId": 1,
+            "platformWishNum": 85609
+          },
+          {
+            "number": 0.00100000004749745,
+            "percent": "0.1%",
+            "platform": "猫眼抖音小程序",
+            "platformId": 2,
+            "platformWishNum": 44
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "宣传活动页",
+            "platformId": 8,
+            "platformWishNum": 24
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "猫眼微博小程序",
+            "platformId": 3,
+            "platformWishNum": 9
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "猫眼百度小程序",
+            "platformId": 5,
+            "platformWishNum": 7
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "猫眼小红书小程序",
+            "platformId": 4,
+            "platformWishNum": 1
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "猫眼快手小程序",
+            "platformId": 6,
+            "platformWishNum": 1
+          },
+          {
+            "number": 0,
+            "percent": "0.0%",
+            "platform": "猫眼今日头条小程序",
+            "platformId": 7,
+            "platformWishNum": 0
+          }
+        ]
+      },
+      "userProfile": {
+        "eduLevelInfoChart": {
+          "series": [
+            {
+              "color": "#5AD5B5 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#5AD5B5 1.00",
+                  "xValue": "本科及以上",
+                  "yOriValue": 35844,
+                  "yPercent": 50.3,
+                  "yUnit": "%",
+                  "yValue": 50.3
+                },
+                {
+                  "color": "#B4DF4E 1.00",
+                  "xValue": "本科以下",
+                  "yOriValue": 35481,
+                  "yPercent": 49.7,
+                  "yUnit": "%",
+                  "yValue": 49.7
+                }
+              ],
+              "serieType": 1,
+              "unit": "%"
+            }
+          ],
+          "title": "教育程度",
+          "xAxisValues": [
+            "本科及以上",
+            "本科以下"
+          ],
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 56,
+          "yAxisMinValue": 0
+        },
+        "userMovieInterestInfoChart": {
+          "series": [
+            {
+              "color": "#FF574D 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#FF574D 1.00",
+                  "xValue": "剧情",
+                  "yOriValue": 64790,
+                  "yPercent": 25.9,
+                  "yUnit": "%",
+                  "yValue": 25.9
+                },
+                {
+                  "color": "#3E8FF1 1.00",
+                  "xValue": "喜剧",
+                  "yOriValue": 43554,
+                  "yPercent": 17.4,
+                  "yUnit": "%",
+                  "yValue": 17.4
+                },
+                {
+                  "color": "#2BC7FF 1.00",
+                  "xValue": "动画",
+                  "yOriValue": 41926,
+                  "yPercent": 16.7,
+                  "yUnit": "%",
+                  "yValue": 16.7
+                },
+                {
+                  "color": "#20D8DC 1.00",
+                  "xValue": "动作",
+                  "yOriValue": 33177,
+                  "yPercent": 13.3,
+                  "yUnit": "%",
+                  "yValue": 13.3
+                },
+                {
+                  "color": "#35CD6A 1.00",
+                  "xValue": "魔幻",
+                  "yOriValue": 24743,
+                  "yPercent": 9.9,
+                  "yUnit": "%",
+                  "yValue": 9.9
+                },
+                {
+                  "color": "#88DD2C 1.00",
+                  "xValue": "爱情",
+                  "yOriValue": 18830,
+                  "yPercent": 7.5,
+                  "yUnit": "%",
+                  "yValue": 7.5
+                },
+                {
+                  "color": "#FFEF00 1.00",
+                  "xValue": "科幻",
+                  "yOriValue": 15133,
+                  "yPercent": 6,
+                  "yUnit": "%",
+                  "yValue": 6
+                },
+                {
+                  "color": "#FFD000 1.00",
+                  "xValue": "惊悚",
+                  "yOriValue": 2728,
+                  "yPercent": 1.1,
+                  "yUnit": "%",
+                  "yValue": 1.1
+                },
+                {
+                  "color": "#FBAA00 1.00",
+                  "xValue": "战争",
+                  "yOriValue": 2527,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FA7900 1.00",
+                  "xValue": "灾难",
+                  "yOriValue": 1529,
+                  "yPercent": 0.6,
+                  "yUnit": "%",
+                  "yValue": 0.6
+                },
+                {
+                  "color": "#D02E0E 1.00",
+                  "xValue": "纪实",
+                  "yOriValue": 940,
+                  "yPercent": 0.4,
+                  "yUnit": "%",
+                  "yValue": 0.4
+                },
+                {
+                  "color": "#7E5CFF 1.00",
+                  "xValue": "歌舞",
+                  "yOriValue": 461,
+                  "yPercent": 0.2,
+                  "yUnit": "%",
+                  "yValue": 0.2
+                }
+              ],
+              "serieType": 3,
+              "unit": "%"
+            }
+          ],
+          "title": "电影类型偏好",
+          "xAxisValues": [
+            "惊悚",
+            "动画",
+            "纪实",
+            "战争",
+            "灾难",
+            "魔幻",
+            "动作",
+            "科幻",
+            "喜剧",
+            "剧情",
+            "爱情",
+            "歌舞"
+          ],
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 29,
+          "yAxisMinValue": 0
+        },
+        "occupationInfoChart": {
+          "series": [
+            {
+              "color": "#FF574D 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#FF574D 1.00",
+                  "xValue": "其他",
+                  "yOriValue": 37443,
+                  "yPercent": 43.7,
+                  "yUnit": "%",
+                  "yValue": 43.7
+                },
+                {
+                  "color": "#3E8FF1 1.00",
+                  "xValue": "白领",
+                  "yOriValue": 34628,
+                  "yPercent": 40.4,
+                  "yUnit": "%",
+                  "yValue": 40.4
+                },
+                {
+                  "color": "#2BC7FF 1.00",
+                  "xValue": "学生",
+                  "yOriValue": 13539,
+                  "yPercent": 15.8,
+                  "yUnit": "%",
+                  "yValue": 15.8
+                }
+              ],
+              "serieType": 3,
+              "unit": "%"
+            }
+          ],
+          "title": "职业",
+          "xAxisValues": [
+            "学生",
+            "白领",
+            "其他"
+          ],
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 49,
+          "yAxisMinValue": 0
+        },
+        "hotAreaInfoChart": {
+          "series": [
+            {
+              "color": "#FF6F5D 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "四线城市",
+                  "yOriValue": 35044,
+                  "yPercent": 41,
+                  "yUnit": "%",
+                  "yValue": 41
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "二线城市",
+                  "yOriValue": 27237,
+                  "yPercent": 31.9,
+                  "yUnit": "%",
+                  "yValue": 31.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "三线城市",
+                  "yOriValue": 13549,
+                  "yPercent": 15.8,
+                  "yUnit": "%",
+                  "yValue": 15.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "一线城市",
+                  "yOriValue": 9658,
+                  "yPercent": 11.3,
+                  "yUnit": "%",
+                  "yValue": 11.3
+                }
+              ],
+              "serieType": 2,
+              "unit": "%"
+            }
+          ],
+          "title": "活跃地区",
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 46,
+          "yAxisMinValue": 0
+        },
+        "genderInfoChart": {
+          "series": [
+            {
+              "color": "#77B3F1 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#77B3F1 1.00",
+                  "xValue": "男",
+                  "yOriValue": 19983,
+                  "yPercent": 26.1,
+                  "yUnit": "%",
+                  "yValue": 26.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "女",
+                  "yOriValue": 56505,
+                  "yPercent": 73.9,
+                  "yUnit": "%",
+                  "yValue": 73.9
+                }
+              ],
+              "serieType": 1,
+              "unit": "%"
+            }
+          ],
+          "title": "性别",
+          "xAxisValues": [
+            "男",
+            "女"
+          ],
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 82,
+          "yAxisMinValue": 0
+        },
+        "provinceInfoChart": {
+          "series": [
+            {
+              "color": "#FF6F5D 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "广东省",
+                  "yOriValue": 8241,
+                  "yPercent": 9.6,
+                  "yUnit": "%",
+                  "yValue": 9.6
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "江苏省",
+                  "yOriValue": 6886,
+                  "yPercent": 8.1,
+                  "yUnit": "%",
+                  "yValue": 8.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "山东省",
+                  "yOriValue": 6718,
+                  "yPercent": 7.9,
+                  "yUnit": "%",
+                  "yValue": 7.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "河南省",
+                  "yOriValue": 4824,
+                  "yPercent": 5.6,
+                  "yUnit": "%",
+                  "yValue": 5.6
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "浙江省",
+                  "yOriValue": 4190,
+                  "yPercent": 4.9,
+                  "yUnit": "%",
+                  "yValue": 4.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "辽宁省",
+                  "yOriValue": 4149,
+                  "yPercent": 4.9,
+                  "yUnit": "%",
+                  "yValue": 4.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "四川省",
+                  "yOriValue": 4039,
+                  "yPercent": 4.7,
+                  "yUnit": "%",
+                  "yValue": 4.7
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "河北省",
+                  "yOriValue": 3726,
+                  "yPercent": 4.4,
+                  "yUnit": "%",
+                  "yValue": 4.4
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "北京市",
+                  "yOriValue": 3372,
+                  "yPercent": 3.9,
+                  "yUnit": "%",
+                  "yValue": 3.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "安徽省",
+                  "yOriValue": 3149,
+                  "yPercent": 3.7,
+                  "yUnit": "%",
+                  "yValue": 3.7
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "福建省",
+                  "yOriValue": 3136,
+                  "yPercent": 3.7,
+                  "yUnit": "%",
+                  "yValue": 3.7
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "湖北省",
+                  "yOriValue": 3040,
+                  "yPercent": 3.6,
+                  "yUnit": "%",
+                  "yValue": 3.6
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "上海市",
+                  "yOriValue": 2834,
+                  "yPercent": 3.3,
+                  "yUnit": "%",
+                  "yValue": 3.3
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "湖南省",
+                  "yOriValue": 2598,
+                  "yPercent": 3,
+                  "yUnit": "%",
+                  "yValue": 3
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "山西省",
+                  "yOriValue": 2398,
+                  "yPercent": 2.8,
+                  "yUnit": "%",
+                  "yValue": 2.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "陕西省",
+                  "yOriValue": 2390,
+                  "yPercent": 2.8,
+                  "yUnit": "%",
+                  "yValue": 2.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "江西省",
+                  "yOriValue": 2099,
+                  "yPercent": 2.5,
+                  "yUnit": "%",
+                  "yValue": 2.5
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "内蒙古自治区",
+                  "yOriValue": 2045,
+                  "yPercent": 2.4,
+                  "yUnit": "%",
+                  "yValue": 2.4
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "黑龙江省",
+                  "yOriValue": 1883,
+                  "yPercent": 2.2,
+                  "yUnit": "%",
+                  "yValue": 2.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "天津市",
+                  "yOriValue": 1863,
+                  "yPercent": 2.2,
+                  "yUnit": "%",
+                  "yValue": 2.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "吉林省",
+                  "yOriValue": 1801,
+                  "yPercent": 2.1,
+                  "yUnit": "%",
+                  "yValue": 2.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "广西壮族自治区",
+                  "yOriValue": 1762,
+                  "yPercent": 2.1,
+                  "yUnit": "%",
+                  "yValue": 2.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "云南省",
+                  "yOriValue": 1716,
+                  "yPercent": 2,
+                  "yUnit": "%",
+                  "yValue": 2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "重庆市",
+                  "yOriValue": 1625,
+                  "yPercent": 1.9,
+                  "yUnit": "%",
+                  "yValue": 1.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "甘肃省",
+                  "yOriValue": 1303,
+                  "yPercent": 1.5,
+                  "yUnit": "%",
+                  "yValue": 1.5
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "新疆维吾尔自治区",
+                  "yOriValue": 1055,
+                  "yPercent": 1.2,
+                  "yUnit": "%",
+                  "yValue": 1.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "贵州省",
+                  "yOriValue": 879,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "海南省",
+                  "yOriValue": 845,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "宁夏回族自治区",
+                  "yOriValue": 470,
+                  "yPercent": 0.5,
+                  "yUnit": "%",
+                  "yValue": 0.5
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "青海省",
+                  "yOriValue": 325,
+                  "yPercent": 0.4,
+                  "yUnit": "%",
+                  "yValue": 0.4
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "西藏自治区",
+                  "yOriValue": 125,
+                  "yPercent": 0.1,
+                  "yUnit": "%",
+                  "yValue": 0.1
+                }
+              ],
+              "serieType": 2,
+              "unit": "%"
+            }
+          ],
+          "title": "省份",
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 11,
+          "yAxisMinValue": 0
+        },
+        "ageRangeInfoChart": {
+          "series": [
+            {
+              "color": "#FCB205 1.00",
+              "hasMorePoint": false,
+              "points": [
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "20岁以下",
+                  "yOriValue": 15976,
+                  "yPercent": 20.3,
+                  "yUnit": "%",
+                  "yValue": 20.3
+                },
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "20~24岁",
+                  "yOriValue": 26841,
+                  "yPercent": 34.1,
+                  "yUnit": "%",
+                  "yValue": 34.1
+                },
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "25~29岁",
+                  "yOriValue": 11881,
+                  "yPercent": 15.1,
+                  "yUnit": "%",
+                  "yValue": 15.1
+                },
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "30~34岁",
+                  "yOriValue": 9090,
+                  "yPercent": 11.5,
+                  "yUnit": "%",
+                  "yValue": 11.5
+                },
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "35~39岁",
+                  "yOriValue": 5074,
+                  "yPercent": 6.4,
+                  "yUnit": "%",
+                  "yValue": 6.4
+                },
+                {
+                  "color": "#FCB205 1.00",
+                  "xValue": "40岁以上",
+                  "yOriValue": 9919,
+                  "yPercent": 12.6,
+                  "yUnit": "%",
+                  "yValue": 12.6
+                }
+              ],
+              "serieType": 0,
+              "unit": "%"
+            }
+          ],
+          "title": "年龄",
+          "xAxisValues": [
+            "20岁以下",
+            "20~24岁",
+            "25~29岁",
+            "30~34岁",
+            "35~39岁",
+            "40岁以上"
+          ],
+          "yAxisIntervalNum": 4,
+          "yAxisMaxValue": 40,
+          "yAxisMinValue": 0
+        },
+        "cityInfoChart": {
+          "series": [
+            {
+              "color": "#FF6F5D 1.00",
+              "hasMorePoint": true,
+              "points": [
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "北京市",
+                  "yOriValue": 3372,
+                  "yPercent": 4,
+                  "yUnit": "%",
+                  "yValue": 4
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "上海市",
+                  "yOriValue": 2834,
+                  "yPercent": 3.3,
+                  "yUnit": "%",
+                  "yValue": 3.3
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "天津市",
+                  "yOriValue": 1863,
+                  "yPercent": 2.2,
+                  "yUnit": "%",
+                  "yValue": 2.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "广州市",
+                  "yOriValue": 1768,
+                  "yPercent": 2.1,
+                  "yUnit": "%",
+                  "yValue": 2.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "成都市",
+                  "yOriValue": 1743,
+                  "yPercent": 2.1,
+                  "yUnit": "%",
+                  "yValue": 2.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "深圳市",
+                  "yOriValue": 1737,
+                  "yPercent": 2,
+                  "yUnit": "%",
+                  "yValue": 2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "重庆市",
+                  "yOriValue": 1625,
+                  "yPercent": 1.9,
+                  "yUnit": "%",
+                  "yValue": 1.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "西安市",
+                  "yOriValue": 1405,
+                  "yPercent": 1.7,
+                  "yUnit": "%",
+                  "yValue": 1.7
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "武汉市",
+                  "yOriValue": 1372,
+                  "yPercent": 1.6,
+                  "yUnit": "%",
+                  "yValue": 1.6
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "沈阳市",
+                  "yOriValue": 1308,
+                  "yPercent": 1.5,
+                  "yUnit": "%",
+                  "yValue": 1.5
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "苏州市",
+                  "yOriValue": 1136,
+                  "yPercent": 1.3,
+                  "yUnit": "%",
+                  "yValue": 1.3
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "郑州市",
+                  "yOriValue": 1114,
+                  "yPercent": 1.3,
+                  "yUnit": "%",
+                  "yValue": 1.3
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "济南市",
+                  "yOriValue": 1047,
+                  "yPercent": 1.2,
+                  "yUnit": "%",
+                  "yValue": 1.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "杭州市",
+                  "yOriValue": 985,
+                  "yPercent": 1.2,
+                  "yUnit": "%",
+                  "yValue": 1.2
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "长沙市",
+                  "yOriValue": 964,
+                  "yPercent": 1.1,
+                  "yUnit": "%",
+                  "yValue": 1.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "青岛市",
+                  "yOriValue": 928,
+                  "yPercent": 1.1,
+                  "yUnit": "%",
+                  "yValue": 1.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "哈尔滨市",
+                  "yOriValue": 903,
+                  "yPercent": 1.1,
+                  "yUnit": "%",
+                  "yValue": 1.1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "昆明市",
+                  "yOriValue": 892,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "南京市",
+                  "yOriValue": 877,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "长春市",
+                  "yOriValue": 848,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "大连市",
+                  "yOriValue": 812,
+                  "yPercent": 1,
+                  "yUnit": "%",
+                  "yValue": 1
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "福州市",
+                  "yOriValue": 782,
+                  "yPercent": 0.9,
+                  "yUnit": "%",
+                  "yValue": 0.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "呼和浩特市",
+                  "yOriValue": 748,
+                  "yPercent": 0.9,
+                  "yUnit": "%",
+                  "yValue": 0.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "合肥市",
+                  "yOriValue": 747,
+                  "yPercent": 0.9,
+                  "yUnit": "%",
+                  "yValue": 0.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "宁波市",
+                  "yOriValue": 732,
+                  "yPercent": 0.9,
+                  "yUnit": "%",
+                  "yValue": 0.9
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "无锡市",
+                  "yOriValue": 710,
+                  "yPercent": 0.8,
+                  "yUnit": "%",
+                  "yValue": 0.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "石家庄市",
+                  "yOriValue": 692,
+                  "yPercent": 0.8,
+                  "yUnit": "%",
+                  "yValue": 0.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "太原市",
+                  "yOriValue": 677,
+                  "yPercent": 0.8,
+                  "yUnit": "%",
+                  "yValue": 0.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "泉州市",
+                  "yOriValue": 671,
+                  "yPercent": 0.8,
+                  "yUnit": "%",
+                  "yValue": 0.8
+                },
+                {
+                  "color": "#FF6F5D 1.00",
+                  "xValue": "厦门市",
+                  "yOriValue": 650,
+                  "yPercent": 0.8,
+                  "yUnit": "%",
+                  "yValue": 0.8
+                }
+              ],
+              "serieType": 2,
+              "unit": "%"
+            }
+          ],
+          "title": "城市",
+          "yAxisIntervalNum": 0,
+          "yAxisMaxValue": 5,
+          "yAxisMinValue": 0
+        },
+        "wishNum": 85859,
+        "releaseTag": "映前70天",
+        "color": "#FC8B00"
+      },
+      "ticketsHistoryData": [
+        {
+          "image": "https://p0.pipi.cn/basicdata/54ecdedd7a3b12b535b12df09e041bfd09c11.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 3606,
+          "movieName": "哈利·波特与魔法石",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=3606",
+          "info": "27.89%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/fb738671537c69e5bc02ff9ad5c95aa31a703.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1452790,
+          "movieName": "消失的她",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1452790",
+          "info": "18.40%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/basicdata/54ecdedd7a3b127a3521f0f987c60653d884d.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 5075,
+          "movieName": "哈利·波特与密室",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=5075",
+          "info": "15.68%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/basicdata/54ecdeddc7ec697e1216bd3e8a5dc11c82590.png?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1516983,
+          "movieName": "抓娃娃",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1516983",
+          "info": "15.56%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/basicdata/54ecde517e1ddd3139e19bf8f069b9b675e8a.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1201,
+          "movieName": "哈利·波特与阿兹卡班的囚徒",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1201",
+          "info": "15.39%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/54ecde0251b3385bf171f7bed23b9c527efea.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1198578,
+          "movieName": "你想活出怎样的人生",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1198578",
+          "info": "14.85%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/54ecde337e12ff8d33b535c988099bdf45cd0.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1374349,
+          "movieName": "孤注一掷",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1374349",
+          "info": "14.83%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/fb738633dddddd230fddd2291917e3b884f3c.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 346288,
+          "movieName": "封神第一部",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=346288",
+          "info": "14.39%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/fb7386028ea51bb12dd2363a4352b3f238c4e.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1462626,
+          "movieName": "满江红",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1462626",
+          "info": "14.33%购买过"
+        },
+        {
+          "image": "https://p0.pipi.cn/mmdb/54ecde8d2ff51b8d33300beb713232e1932ab.jpg?imageMogr2/thumbnail/2500x2500%3E",
+          "movieId": 1489349,
+          "movieName": "第二十条",
+          "jumperUrl": "maoyanpro://www.meituan.com/movieDetail?movieId=1489349",
+          "info": "13.15%购买过"
+        }
+      ],
+      "hasData": {
+        "hasSummary": true,
+        "hasTrend": true,
+        "hasSource": true,
+        "hasPersona": true,
+        "hasProfileData": false,
+        "hasTicketHistory": true
+      },
+      "isLogin": 13000007,
+      "personaRange": {
+        "dateRange": {
+          "curDate": 20240920,
+          "endDate": 20241211,
+          "startDate": 20240920
+        },
+        "type": 0,
+        "hasDailyPersona": true
+      }
+    }
+  }

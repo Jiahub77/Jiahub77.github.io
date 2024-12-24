@@ -1,0 +1,1 @@
+import{q as t}from"./index-B3WSfOB5.js";const s=e=>t.get(`search/movies?keyword=${e}&ci=1&offset=1`),o=e=>t.get(`search/cinemas?keyword=${e}&ci=1&offset=1`),a=(e=0)=>t.get(`video/short/${e}`);export{o as a,a as b,s as g};

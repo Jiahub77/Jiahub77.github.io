@@ -1,0 +1,1 @@
+import{q as t}from"./index-B3WSfOB5.js";const e=a=>t.get(`https://apis.netstart.cn/maoyan/cinema/detail?cinemaId=${a}`),s=a=>t.get(`https://apis.netstart.cn/maoyan/cinema/shows?cinemaId=${a}&ci=1&channelId=4`),i=()=>t.get("https://apis.netstart.cn/maoyan/cinema/queryDealList.json"),c=()=>t.get("https://apis.netstart.cn/maoyan/cinema/seat-m.json");export{s as a,i as b,c,e as g};

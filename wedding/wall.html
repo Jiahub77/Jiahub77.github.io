@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>照片墙 · 清和与晚棠</title>
+    <link rel="icon" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./site.css" />
+  </head>
+  <body>
+    <nav class="top">
+      <a class="brand" href="./">顾清和 · 沈晚棠</a>
+      <div class="links">
+        <a href="./">主页</a>
+        <a href="./invite.html">请柬</a>
+        <a class="on" href="./wall.html">照片墙</a>
+      </div>
+    </nav>
+    <div class="wall">
+      <div class="stage" id="stage">
+        <div class="ring" id="ring"></div>
+      </div>
+      <div class="caption">
+        <p id="title" style="font-size: 1.4rem; margin: 0">照片墙</p>
+        <p id="cap" style="opacity: 0.6; margin: 0.4rem 0 0">左右滑动翻阅</p>
+      </div>
+    </div>
+    <script>
+      const photos = [
+        { src: "./images/still-life.jpg", title: "香", caption: "一炷沉香，开场。" },
+        { src: "./images/peony.jpg", title: "牡丹", caption: "折枝，未题款。" },
+        { src: "./images/courtyard.jpg", title: "月洞", caption: "门里门外，都是水。" },
+        { src: "./images/garden.jpg", title: "甬道", caption: "白墙花窗，一匹素绢。" },
+        { src: "./images/tablescape.jpg", title: "席", caption: "箸与银叉同席。" },
+        { src: "./images/stationery.jpg", title: "帖", caption: "朱砂印还没有落下。" },
+        { src: "./images/tea.jpg", title: "茶", caption: "两盏，刚刚好。" },
+        { src: "./images/lanterns.jpg", title: "灯", caption: "檐下的暖色，落在水里。" },
+        { src: "./images/hands.jpg", title: "约", caption: "指尖将触未触。" },
+        { src: "./images/lotus.jpg", title: "荷", caption: "夜色把花洗淡了。" },
+        { src: "./images/corridor.jpg", title: "廊", caption: "烛火把路认出来。" },
+        { src: "./images/ink.jpg", title: "墨", caption: "纸上只有风。" },
+        { src: "./images/glasses.jpg", title: "杯", caption: "西与东，碰一下。" },
+        { src: "./images/bridge.jpg", title: "桥", caption: "月下只留一座。" },
+      ];
+      const ring = document.getElementById("ring");
+      const n = photos.length;
+      const step = 360 / n;
+      photos.forEach((p, i) => {
+        const fig = document.createElement("figure");
+        fig.className = "card";
+        fig.style.transform = `rotateY(${i * step}deg) translateZ(min(38vw, 340px))`;
+        fig.innerHTML = `<img src="${p.src}" alt="${p.title}" draggable="false" />`;
+        ring.appendChild(fig);
+      });
+      let rot = 0, vel = 0, drag = false, lastX = 0;
+      const apply = () => {
+        ring.style.transform = `translate(-50%, -46%) rotateY(${rot}deg)`;
+        const idx = ((Math.round(-rot / step) % n) + n) % n;
+        document.getElementById("title").textContent = photos[idx].title;
+        document.getElementById("cap").textContent = photos[idx].caption;
+      };
+      const stage = document.getElementById("stage");
+      stage.addEventListener("pointerdown", (e) => { drag = true; lastX = e.clientX; vel = 0; });
+      stage.addEventListener("pointermove", (e) => {
+        if (!drag) return;
+        const dx = e.clientX - lastX;
+        lastX = e.clientX;
+        vel = dx * 0.07;
+        rot += vel;
+        apply();
+      });
+      addEventListener("pointerup", () => { drag = false; });
+      const tick = () => {
+        if (!drag) {
+          vel *= 0.92;
+          rot += vel;
+          const target = -Math.round(-rot / step) * step;
+          rot += (target - rot) * 0.08;
+          apply();
+        }
+        requestAnimationFrame(tick);
+      };
+      apply();
+      requestAnimationFrame(tick);
+    </script>
+  </body>
+</html>
